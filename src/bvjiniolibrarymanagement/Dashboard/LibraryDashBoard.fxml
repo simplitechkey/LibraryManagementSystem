@@ -1,98 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="669.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="bvjiniolibrarymanagement.Dashboard.LibraryDashBoardController">
+<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bvjiniolibrarymanagement.Dashboard.LibraryDashBoardController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <VBox layoutX="-9.0" layoutY="-9.0" prefHeight="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #00000f;">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </AnchorPane>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #393939;" />
          </children>
-         <effect>
-            <DropShadow />
-         </effect>
-      </HBox>
-      <VBox alignment="TOP_CENTER" layoutY="100.0" prefHeight="479.0" prefWidth="161.0" style="-fx-background-color: #ffffff;">
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="250.0" style="-fx-background-color: #393939;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton alignment="CENTER" buttonType="RAISED" graphicTextGap="20.0" prefHeight="58.0" prefWidth="131.0" style="-fx-background-radius: 60; -fx-background-color: transparent;" text="Issued books" wrapText="true">
-               <graphic>
-                  <Icon content="ADD_CIRCLE" />
-               </graphic>
+            <AnchorPane opacity="0.88" prefHeight="197.0" prefWidth="200.0" styleClass="body" stylesheets="@FullScreen.css" />
+            <JFXButton alignment="CENTER" buttonType="RAISED" ellipsisString="" graphicTextGap="30.0" prefHeight="60.0" prefWidth="248.0" ripplerFill="#eb6932" style="-fx-background-radius: 10; -fx-background-color: #ff996a;" text="Add a book Entry" textAlignment="RIGHT" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets top="50.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton alignment="CENTER" buttonType="RAISED" graphicTextGap="20.0" prefHeight="58.0" prefWidth="131.0" wrapText="true">
+                  <Insets top="20.0" />
+               </VBox.margin>           
+               <effect>
+                  <DropShadow height="255.0" radius="127.0" spread="0.88" width="255.0" />
+               </effect>
                <graphic>
-                  <Icon content="ADD_CIRCLE" />
+                  <FontAwesomeIconView glyphName="PLUS" />
                </graphic>
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton alignment="CENTER" buttonType="RAISED" graphicTextGap="20.0" prefHeight="58.0" prefWidth="131.0" wrapText="true">
-               <graphic>
-                  <Icon content="ALARM" />
-               </graphic>
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton alignment="CENTER" buttonType="RAISED" graphicTextGap="20.0" prefHeight="58.0" prefWidth="131.0" wrapText="true">
-               <graphic>
-                  <Icon content="ADD_CIRCLE" />
-               </graphic>
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton alignment="CENTER" graphicTextGap="20.0" prefHeight="58.0" prefWidth="131.0" wrapText="true">
-               <graphic>
-                  <Icon content="ADD_CIRCLE" />
-               </graphic>
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
             </JFXButton>
          </children>
       </VBox>
-      <TableView layoutX="161.0" layoutY="100.0" prefHeight="548.0" prefWidth="932.0" style="-fx-background-color: #fe5421;">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-         <effect>
-            <DropShadow />
-         </effect>
-      </TableView>
+      <PieChart layoutX="250.0" layoutY="100.0" legendSide="LEFT" title="Book Statistics" />
    </children>
 </AnchorPane>

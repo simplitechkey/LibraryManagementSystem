@@ -4,17 +4,72 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="395.0" prefWidth="438.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bvjiniolibrarymanagement.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #393939;" stylesheets="@FullScreen.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bvjiniolibrarymanagement.FXMLDocumentController">
     <children>
-        <Label fx:id="label" layoutX="118.0" layoutY="14.0" minHeight="16" minWidth="69" text="Library ManageMent System" />
-      <JFXTextField layoutX="150.0" layoutY="150.0" promptText="Username" AnchorPane.leftAnchor="150.0" />
-      <FontAwesomeIconView glyphName="USER" layoutX="271.0" layoutY="166.0" />
-      <JFXPasswordField layoutX="150.0" layoutY="198.0" promptText="Password" />
-      <FontAwesomeIconView glyphName="LOCK" layoutX="272.0" layoutY="214.0" />
-      <JFXButton buttonType="RAISED" layoutX="56.0" layoutY="272.0" onAction="#handleButtonAction" prefHeight="33.0" prefWidth="146.0" style="-fx-background-radius: 50; -fx-background-color: #ffffff;" text="Login" />
-      <JFXButton buttonType="RAISED" layoutX="242.0" layoutY="272.0" prefHeight="33.0" prefWidth="154.0" style="-fx-background-radius: 50; -fx-background-color: #ffffff;" text="Create or Modify Account" wrapText="true" />
+        <Label fx:id="label" contentDisplay="CENTER" layoutX="109.0" layoutY="35.0" prefHeight="42.0" prefWidth="323.0" text="Library Management System" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+      </Label>
+      <JFXTextField fx:id="loginfield" focusColor="#ffffff00" layoutX="131.0" layoutY="269.0" prefHeight="40.0" prefWidth="230.0" promptText="Username" style="-fx-background-color: white; -fx-background-radius: 20;" unFocusColor="#ffffff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <opaqueInsets>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+      </JFXTextField>
+      <FontAwesomeIconView glyphName="USER" layoutX="329.0" layoutY="293.0" text="" />
+      <JFXPasswordField fx:id="passwordfield" layoutX="131.0" layoutY="336.0" prefHeight="40.0" prefWidth="230.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 20;" unFocusColor="#ffffff00">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+         <focusColor>
+            <RadialGradient centerX="0.5" centerY="0.5761904761904761" cycleMethod="REFLECT" radius="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#ff9f9f00" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </focusColor>
+      </JFXPasswordField>
+      <FontAwesomeIconView glyphName="LOCK" layoutX="333.0" layoutY="360.0" wrappingWidth="17.571428507566452" />
+      <JFXButton fx:id="login" buttonType="RAISED" layoutX="41.0" layoutY="416.0" onAction="#handleButtonAction" prefHeight="42.0" prefWidth="180.0" style="-fx-background-radius: 10; -fx-background-color: #ec7f37; -fx-border-width: 3; -fx-border-color: #be4f0c; -fx-border-radius: 10;" text="Login" textFill="#fcfcfc" underline="true">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow color="#8d8484" radius="4.75" spread="0.14" width="0.0" />
+         </effect>
+      </JFXButton>
+      <JFXButton fx:id="login2" buttonType="RAISED" layoutX="270.0" layoutY="416.0" onAction="#handleButtonAction" prefHeight="42.0" prefWidth="191.0" style="-fx-background-radius: 10; -fx-background-color: #ec7f37; -fx-border-width: 3; -fx-border-color: #be4f0c; -fx-border-radius: 10;" text="Create or Modify Account" textFill="#fcfcfc" underline="true">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="129.0" fitWidth="180.0" layoutX="186.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginicon.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
