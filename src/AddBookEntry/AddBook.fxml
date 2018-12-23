@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" minHeight="400.0" prefHeight="607.0" prefWidth="558.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddBookEntry.AddBookController">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="6.0" prefHeight="100.0" prefWidth="594.0" style="-fx-background-color: #fe1234;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <JFXButton buttonType="RAISED" prefHeight="50.0" prefWidth="125.0" />
+         </children>
+      </HBox>
+      <AnchorPane layoutY="100.0" prefHeight="505.0" prefWidth="671.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <VBox layoutX="99.0" layoutY="29.0">
+               <children>
+                  <JFXTextField fx:id="bookBarcodeId" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="bookname" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="branch" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="authorName" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="subject" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="price" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="editionYear" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <VBox layoutX="311.0" layoutY="29.0">
+               <children>
+                  <JFXTextField fx:id="supplier" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="year" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXDatePicker defaultColor="#8f2f00" promptText="Select bill date" style="-fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXDatePicker>
+                  <JFXTextField fx:id="publication" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="billnumber" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="accnumber" prefHeight="37.0" prefWidth="158.0" promptText="name of book" style="-fx-background-radius: 10; -fx-background-color: red;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <JFXButton fx:id="addrecord" buttonType="RAISED" layoutX="290.0" layoutY="389.0" onAction="#addrecord" prefHeight="32.0" prefWidth="201.0" ripplerFill="#e40b0b" style="-fx-background-radius: 100; -fx-background-color: green;" text="Add Book" textAlignment="CENTER" underline="true">
+               <effect>
+                  <DropShadow />
+               </effect></JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>
