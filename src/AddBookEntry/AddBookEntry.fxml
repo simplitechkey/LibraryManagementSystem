@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="526.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="AddBookEntry.AddBookController">
+<AnchorPane id="AnchorPane" prefHeight="661.0" prefWidth="652.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddBookEntry.AddBookController">
    <children>
       <AnchorPane prefHeight="107.0" prefWidth="600.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -18,13 +19,151 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <JFXTextField layoutX="71.0" layoutY="162.0" prefHeight="38.0" prefWidth="193.0" promptText="Enter Book Title" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
-         <padding>
-            <Insets left="20.0" right="20.0" />
-         </padding>
-         <font>
-            <Font size="17.0" />
-         </font>
-      </JFXTextField>
+      <VBox layoutX="91.0" layoutY="147.0">
+         <children>
+            <JFXTextField fx:id="bookIdField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Book id" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="bookSubjectField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Book Subject" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="bookBranchField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Branch" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="bookTitleField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Book Title" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="bookAccNoField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Acc.No" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="bookAuthorField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Author" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="bookPublicationField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Publication" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+         </children>
+      </VBox>
+      <VBox layoutX="392.0" layoutY="147.0">
+         <children>
+            <JFXTextField fx:id="bookPriceField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Book Price" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="bookYearField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Book Year" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="bookEditionField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Edition Year" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="bookSupplierField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Book Supplier" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="bookNoField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Bill No." style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXDatePicker fx:id="bookbillDateField" defaultColor="#ff996a" promptText="Select Book Billing Date">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </JFXDatePicker>
+         </children>
+      </VBox>
+      <JFXButton layoutX="252.0" layoutY="580.0" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: #393939;" textFill="WHITE" />
    </children>
 </AnchorPane>

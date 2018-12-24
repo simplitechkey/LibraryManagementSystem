@@ -19,47 +19,7 @@ import javafx.fxml.Initializable;
  */
 public class AddBookController implements Initializable {
 
-     @FXML
-    private JFXTextField bookBarcodeId;
-
-    @FXML
-    private JFXTextField bookname;
-
-    @FXML
-    private JFXTextField branch;
-
-    @FXML
-    private JFXTextField authorName;
-
-    @FXML
-    private JFXTextField subject;
-
-    @FXML
-    private JFXTextField price;
-
-    @FXML
-    private JFXTextField editionYear;
-
-    @FXML
-    private JFXTextField supplier;
-
-    @FXML
-    private JFXTextField year;
-
-    @FXML
-    private JFXTextField billdate;
-
-    @FXML
-    private JFXTextField publication;
-
-    @FXML
-    private JFXTextField billnumber;
-
-    @FXML
-    private JFXTextField accnumber;
-    
-    @FXML
-    private JFXButton addrecord;
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         

@@ -68,7 +68,7 @@ public class FXMLDocumentController implements Initializable {
             if(uname.equals("admin") && pass.equals("admin")){
              Stage stage2 = (Stage) login.getScene().getWindow();
              stage2.close();
-             
+            
                stage.show();
             }else{
                 
@@ -94,9 +94,11 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
               stage=new Stage();
-            AnchorPane root = FXMLLoader.load(getClass().getResource("Dashboard/LibraryDashBoard.fxml"));
+            AnchorPane root = FXMLLoader.load(getClass().getResource("Dashboard/Dashboard.fxml"));
             Scene scene = new Scene(root,1200,600);
-             stage.initStyle(StageStyle.UTILITY);
+            // stage.initStyle(StageStyle.UTILITY);
+             stage.setResizable(false);
+             stage.setTitle("Add New Book");
             stage.setScene(scene);
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);

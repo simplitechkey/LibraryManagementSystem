@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="508.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fromDashboard.TotalNumberofBooksController">
+   <children>
+      <TableView fx:id="bookTableView" editable="true" fixedCellSize="0.0" focusTraversable="false" layoutX="73.0" layoutY="98.0" prefHeight="258.0" prefWidth="323.0">
+        <columns>
+          <TableColumn fx:id="bookId" prefWidth="75.0" text="bookID" />
+          <TableColumn fx:id="bookSubject" prefWidth="103.0" text="bookSubject" />
+            <TableColumn fx:id="bookBranch" prefWidth="113.0" text="bookBranch" />
+        </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" layoutX="118.0" layoutY="427.0" prefHeight="27.0" prefWidth="126.0" style="-fx-background-color: white;" text="add" />
+      <JFXTextField layoutX="33.0" layoutY="369.0" prefHeight="27.0" prefWidth="211.0" style="-fx-background-color: white;" />
+      <JFXButton buttonType="RAISED" layoutX="118.0" layoutY="464.0" prefHeight="27.0" prefWidth="126.0" style="-fx-background-color: white;" text="delete" />
+      <JFXButton buttonType="RAISED" layoutX="287.0" layoutY="427.0" prefHeight="27.0" prefWidth="126.0" style="-fx-background-color: white;" text="update" />
+      <JFXTextField fx:id="branchField" layoutX="109.0" layoutY="60.0" prefHeight="27.0" prefWidth="211.0" promptText="branch" style="-fx-background-color: white;" />
+      <JFXTextField fx:id="subjectField" layoutX="245.0" layoutY="14.0" prefHeight="27.0" prefWidth="211.0" promptText="subject" style="-fx-background-color: white;" />
+      <JFXTextField fx:id="idField" layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="211.0" promptText="id" style="-fx-background-color: white;" />
+      <JFXButton fx:id="allrec" layoutX="456.0" layoutY="200.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" text="showall records" />
+   </children>
+</AnchorPane>
