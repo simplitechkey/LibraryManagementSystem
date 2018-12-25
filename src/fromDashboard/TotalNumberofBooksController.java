@@ -7,9 +7,13 @@ package fromDashboard;
 
 import BeansPackage.DatabaseSample;
 import DatabaseHelper.DBLibraryDAO;
+import DatabaseHelper.DBUtil;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,18 +36,13 @@ public class TotalNumberofBooksController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    @FXML
-   TableView bookTableView;
-     ObservableList<DatabaseSample> data=FXCollections.observableArrayList();
+    ObservableList<DatabaseSample> data=FXCollections.observableArrayList();
          
     @FXML
-    private TableColumn<DatabaseSample,Integer> bookId=new TableColumn();
-
-    @FXML
-    private TableColumn<DatabaseSample,String> bookSubject=new TableColumn();
-
-    @FXML
-    private TableColumn<DatabaseSample,String> bookBranch=new TableColumn();
+   TableView<DatabaseSample> bookTableView;
+     
+   
+   
 
     @FXML
     private JFXTextField branchField;
@@ -62,7 +61,7 @@ public class TotalNumberofBooksController implements Initializable {
     @FXML
     void showallrecs(ActionEvent event) {
         try {
-            bookTableView.setItems(data);
+            bookTableView.setItems(DBLibraryDAO.getAllRecords());
             bookTableView.refresh();
            
         } catch (Exception ex) {
@@ -72,33 +71,82 @@ public class TotalNumberofBooksController implements Initializable {
 
     @FXML
     void addAction(ActionEvent event) {
+        try {
             DBLibraryDAO.insertBook(Integer.parseInt(idField.getText()), subjectField.getText(), branchField.getText());
+           bookTableView.setItems(DBLibraryDAO.getAllRecords());
+            bookTableView.refresh();
+        } catch (Exception ex) {
+            Logger.getLogger(TotalNumberofBooksController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     void deleteAction(ActionEvent event) {
+        try{
         DBLibraryDAO.deleteBookbyID(Integer.parseInt(searchfield.getText()));
+         bookTableView.setItems(DBLibraryDAO.getAllRecords());
+          bookTableView.refresh();
+        }catch(Exception e){
+            
+        }
     }
 
     @FXML
     void updateAction(ActionEvent event) {
             try{
                 DBLibraryDAO.updateBook(Integer.parseInt(searchfield.getText()), subjectField.getText());
+                    bookTableView.setItems(DBLibraryDAO.getAllRecords());
+                     bookTableView.refresh();
             }catch(Exception e){
-                e.printStackTrace();
             }
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            bookId.setCellValueFactory(new PropertyValueFactory("bookId"));
-            bookSubject.setCellValueFactory(new PropertyValueFactory("bookSubject"));
-            bookBranch.setCellValueFactory(new PropertyValueFactory("bookBranch"));
-            bookTableView.setItems(DBLibraryDAO.getAllRecords());
+               TableColumn<DatabaseSample,Integer> bookId=new TableColumn("bookID");
+               bookId.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+               
+               TableColumn<DatabaseSample,String> bookSubject=new TableColumn("bookSubject");
+               bookSubject.setCellValueFactory(new PropertyValueFactory<>("bookSubject"));
+             
+               TableColumn<DatabaseSample,String>bookBranch=new TableColumn("bookBranch");          
+                 bookBranch.setCellValueFactory(new PropertyValueFactory<>("bookBranch"));
+           
+           // bookTableView.setItems(DBLibraryDAO.getAllRecords());
+          // loadDatabaseData();
+            bookTableView.getColumns().addAll(bookId,bookSubject,bookBranch);
            
         } catch (Exception ex) {
             Logger.getLogger(TotalNumberofBooksController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
+    } 
     
+    
+     public void loadDatabaseData(){
+                     
+              String query="select * from totalNumberofBooks";
+            
+              ResultSet rs;
+              try{
+                    rs=DBUtil.dbExecute(query);
+                    while(rs.next()){
+                  data.add(new DatabaseSample(
+                  rs.getInt("bookId"),
+                          rs.getString("bookSubject"),
+                           rs.getString("bookBranch")
+                  ));
+                  bookTableView.setItems(data);
+                  System.out.println
+                          (rs);
+              
+                    }
+              rs.close();
+          } catch (Exception ex) {
+            //  Logger.getLogger(th.class.getName()).log(Level.SEVERE, null, ex);
+          }
+     }
 }
+    
+    
+    
+

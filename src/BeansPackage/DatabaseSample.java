@@ -12,9 +12,9 @@ package BeansPackage;
 
 
 public class DatabaseSample {
-    int bookId;
-    String bookSubject;
-    String bookBranch;
+    int bookId=0;
+    String bookSubject="";
+    String bookBranch="";
     String bookTitle;
     int accNo;
     String bookAuthor;
@@ -67,12 +67,12 @@ public class DatabaseSample {
         this.bookSubject = bookSubject;
     }
 
-    public String getBranchOfBook() {
+    public String getBookBranch() {
         return bookBranch;
     }
 
-    public void setBranchOfBook(String branchOfBook) {
-        this.bookBranch = branchOfBook;
+    public void setBookBranch(String bookBranch) {
+        this.bookBranch = bookBranch;
     }
 
     public String getBookTitle() {

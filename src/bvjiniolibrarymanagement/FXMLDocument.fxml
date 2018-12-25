@@ -35,7 +35,7 @@
             <Insets left="20.0" right="20.0" />
          </padding>
       </JFXTextField>
-      <FontAwesomeIconView glyphName="USER" layoutX="329.0" layoutY="293.0" text="" />
+      <FontAwesomeIconView glyphName="USER" layoutX="329.0" layoutY="293.0" size="17.0" text="" />
       <JFXPasswordField fx:id="passwordfield" layoutX="131.0" layoutY="336.0" prefHeight="40.0" prefWidth="230.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 20;" unFocusColor="#ffffff00">
          <font>
             <Font size="18.0" />
@@ -52,19 +52,14 @@
             </RadialGradient>
          </focusColor>
       </JFXPasswordField>
-      <FontAwesomeIconView glyphName="LOCK" layoutX="333.0" layoutY="360.0" wrappingWidth="17.571428507566452" />
-      <JFXButton fx:id="login" buttonType="RAISED" layoutX="41.0" layoutY="416.0" onAction="#handleButtonAction" prefHeight="42.0" prefWidth="180.0" style="-fx-background-radius: 10; -fx-background-color: #ec7f37; -fx-border-width: 3; -fx-border-color: #be4f0c; -fx-border-radius: 10;" text="Login" textFill="#fcfcfc" underline="true">
+      <FontAwesomeIconView glyphName="LOCK" layoutX="332.0" layoutY="362.0" size="17.0" wrappingWidth="17.571428507566452" />
+      <JFXButton fx:id="login" buttonType="RAISED" layoutX="160.0" layoutY="414.0" onAction="#handleButtonAction" prefHeight="42.0" prefWidth="180.0" style="-fx-background-radius: 10; -fx-background-color: #ff996a; -fx-border-width: 3; -fx-border-radius: 10;" text="Login" textFill="#fcfcfc" underline="true">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
          <effect>
-            <DropShadow color="#8d8484" radius="4.75" spread="0.14" width="0.0" />
+            <DropShadow color="WHITE" height="46.08" radius="20.6575" spread="0.16" width="38.55" />
          </effect>
-      </JFXButton>
-      <JFXButton fx:id="login2" buttonType="RAISED" layoutX="270.0" layoutY="416.0" onAction="#handleButtonAction" prefHeight="42.0" prefWidth="191.0" style="-fx-background-radius: 10; -fx-background-color: #ec7f37; -fx-border-width: 3; -fx-border-color: #be4f0c; -fx-border-radius: 10;" text="Create or Modify Account" textFill="#fcfcfc" underline="true">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
       </JFXButton>
       <ImageView fitHeight="129.0" fitWidth="180.0" layoutX="186.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
          <image>

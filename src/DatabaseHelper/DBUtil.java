@@ -7,6 +7,7 @@ package DatabaseHelper;
 import com.sun.rowset.CachedRowSetImpl;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -65,13 +66,13 @@ public class DBUtil {
      }
      //This method is for retrieving the records from the database.
      public static ResultSet dbExecute(String sqlQuery)throws Exception{
-         Statement stmnt=null;
+         PreparedStatement stmnt=null;
          ResultSet rs=null;
          CachedRowSetImpl crs=null;
          try{
              dbConnect();
-             stmnt=dbConnection.createStatement();
-             rs=stmnt.executeQuery(sqlQuery);
+             stmnt=dbConnection.prepareStatement(sqlQuery);
+             rs=stmnt.executeQuery();
              crs=new CachedRowSetImpl();
              crs.populate(rs);
          }catch(SQLException e){
