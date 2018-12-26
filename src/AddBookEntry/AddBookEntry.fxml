@@ -4,15 +4,16 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="661.0" prefWidth="652.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddBookEntry.AddBookController">
    <children>
-      <AnchorPane prefHeight="107.0" prefWidth="600.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="110.0" prefWidth="600.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton layoutX="21.0" layoutY="30.0" prefHeight="48.0" prefWidth="83.0" style="-fx-background-color: #ff996a;" text="Back" textFill="WHITE">
+            <JFXButton layoutX="21.0" layoutY="30.0" onAction="#backAction" prefHeight="48.0" prefWidth="83.0" style="-fx-background-color: #ff996a;" text="Back" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -164,6 +165,12 @@
             </JFXDatePicker>
          </children>
       </VBox>
-      <JFXButton layoutX="252.0" layoutY="580.0" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: #393939;" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="392.0" layoutY="529.0" onAction="#addRecord" prefHeight="48.0" prefWidth="176.0" style="-fx-background-color: #393939;" text="Add Book Entry" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></JFXButton>
    </children>
 </AnchorPane>

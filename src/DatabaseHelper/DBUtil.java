@@ -23,11 +23,11 @@ public class DBUtil {
     public static void dbConnect(){
         try {
             Class.forName("org.sqlite.JDBC");
-            dbConnection=DriverManager.getConnection("jdbc:sqlite:BvjniotLibraryDatabase.db");  
+            dbConnection=DriverManager.getConnection("jdbc:sqlite:BVPLibraryDb.db");  
             if(dbConnection!=null){
-            System.out.println("omkar");
+            System.out.println("omkarincon");
             }else{
-                 System.out.println("omkar");
+                 System.out.println("omkardics");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DBUtil.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,4 +88,7 @@ public class DBUtil {
          }
          return crs;
      }
+     
+     
+     
 }

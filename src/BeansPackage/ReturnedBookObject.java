@@ -9,9 +9,13 @@ package BeansPackage;
  *
  * @author omkarkamate
  */
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-
-public class DatabaseSample {
+public class ReturnedBookObject {
     int bookId=0;
     String bookSubject="";
     String bookBranch="";
@@ -35,7 +39,7 @@ public class DatabaseSample {
        
     }*/
     
- public DatabaseSample(int bookId, String bookSubject, String bookBranch, String bookTitle, int accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate) {
+ public ReturnedBookObject(int bookId, String bookSubject, String bookBranch, String bookTitle, int accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate) {
         
         this.bookId = bookId;
         this.bookSubject = bookSubject;
