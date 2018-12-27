@@ -21,7 +21,12 @@
          </effect>
       </TableView>
       <JFXButton fx:id="allrec" layoutX="74.0" layoutY="558.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
-      <JFXTextField fx:id="searchfield" layoutX="36.0" layoutY="159.0" prefHeight="27.0" prefWidth="388.0" promptText="Scan or Enter bookId to Issue BookScan or Enter bookId to Issue Book" text="Scan or Enter bookId to Issue Book" />
-      <JFXButton layoutX="451.0" layoutY="153.0" onAction="#searchAction" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
+      <JFXTextField fx:id="searchfield" layoutX="200.0" layoutY="160.0" prefHeight="27.0" prefWidth="208.0" promptText="Scan or Enter bookId to Issue Book" />
+      <JFXButton layoutX="71.0" layoutY="160.0" onAction="#searchAction" prefHeight="27.0" prefWidth="115.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
+      <JFXButton layoutX="512.0" layoutY="155.0" onAction="#issueBookAction" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #ff996a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" text="Issue this book" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

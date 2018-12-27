@@ -8,6 +8,7 @@ package fromDashboard;
 import AddBookEntry.AddBookController;
 import BeansPackage.IssuedBookObject;
 import BeansPackage.IssuedBookObject;
+import BeansPackage.ReturnedBookObject;
 import DatabaseHelper.DBLibraryDAO;
 import IssueBook.IssueBookController;
 import com.jfoenix.controls.JFXButton;
@@ -17,6 +18,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,7 +41,7 @@ public class IssuedBooksTableController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
+     ObservableList<IssuedBookObject> data=FXCollections.observableArrayList();
     @FXML
     private TableView<IssuedBookObject> bookTableView;
 
@@ -63,7 +66,13 @@ public class IssuedBooksTableController implements Initializable {
     }
     @FXML
     void searchAction(ActionEvent event) {
-
+ try {
+            data=DBLibraryDAO.searchIssuedBookBookById(Integer.parseInt(searchfield.getText()));
+            
+           bookTableView.setItems(data);
+        } catch (Exception ex) {
+            Logger.getLogger(IssueBookController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML

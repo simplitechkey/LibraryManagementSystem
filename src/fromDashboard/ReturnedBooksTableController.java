@@ -7,25 +7,22 @@ package fromDashboard;
 
 import AddBookEntry.AddBookController;
 import BeansPackage.ReturnedBookObject;
-import BeansPackage.ReturnedBookObject;
 import DatabaseHelper.DBLibraryDAO;
 import IssueBook.IssueBookController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -34,7 +31,7 @@ import javafx.stage.Stage;
  * @author omkarkamate
  */
 public class ReturnedBooksTableController implements Initializable {
-
+  ObservableList<ReturnedBookObject> data=FXCollections.observableArrayList();
     /**
      * Initializes the controller class.
      */
@@ -60,14 +57,25 @@ public class ReturnedBooksTableController implements Initializable {
        }
     }
     @FXML
-    void searchAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void showallrecs(ActionEvent event) {
-
+        try {
+            bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
+            bookTableView.refresh();
+        } catch (Exception ex) {
+            Logger.getLogger(IssueBookController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+    @FXML
+    void searchAction(ActionEvent event) {
+        try {
+            data=DBLibraryDAO.searchReturnedBookBookById(Integer.parseInt(searchfield.getText()));
+            
+           bookTableView.setItems(data);
+        } catch (Exception ex) {
+            Logger.getLogger(IssueBookController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          try {
@@ -113,7 +121,6 @@ public class ReturnedBooksTableController implements Initializable {
               
               
               bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
-              // loadDatabaseData();
               bookTableView.getColumns().addAll(bookId,bookSubject,bookBranch,bookTitle,bookAccountNumber,bookAuthor,bookPublication,bookPrice,bookYear,bookEditionYear,bookSupplier,billNumber,bookbillDate);
           } catch (Exception ex) {
               Logger.getLogger(IssueBookController.class.getName()).log(Level.SEVERE, null, ex);

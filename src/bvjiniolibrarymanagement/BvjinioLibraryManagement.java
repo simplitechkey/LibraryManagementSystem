@@ -5,6 +5,7 @@
  */
 package bvjiniolibrarymanagement;
 
+import DatabaseHelper.DBLibraryDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,6 +27,7 @@ public class BvjinioLibraryManagement extends Application {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
+        DBLibraryDAO.getAllRecords();
     }
 
     /**

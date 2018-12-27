@@ -70,6 +70,7 @@ public class ReturnedBookObject {
 
     public void setBookSubject(String bookSubject) {
         this.bookSubject = bookSubject;
+        
     }
 
     public String getBookBranch() {

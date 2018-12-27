@@ -8,25 +8,21 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="ReturnBook.ReturnBookController">
+<AnchorPane id="AnchorPane" prefHeight="597.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReturnBook.ReturnBookController">
    <children>
-      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="597.0" prefWidth="712.0">
-         <children>
-            <AnchorPane layoutX="50.0" layoutY="14.0" prefHeight="110.0" prefWidth="200.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <JFXButton layoutX="32.0" layoutY="41.0" onAction="#backAction" prefHeight="48.0" prefWidth="83.0" style="-fx-background-color: #ff996a;" text="Back" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </JFXButton>
-            <TableView fx:id="bookTableView" editable="true" fixedCellSize="0.0" focusTraversable="false" layoutX="54.0" layoutY="203.0" pickOnBounds="false" prefHeight="546.0" prefWidth="635.0" style="-fx-background-color: #ffe0b2;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="200.0">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </TableView>
-            <JFXButton fx:id="allrec" layoutX="74.0" layoutY="558.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
-            <JFXTextField fx:id="searchfield" layoutX="36.0" layoutY="159.0" prefHeight="27.0" prefWidth="388.0" promptText="Scan or Enter bookId to Issue BookScan or Enter bookId to Issue Book" text="Scan or Enter bookId to Issue Book" />
-            <JFXButton layoutX="451.0" layoutY="153.0" onAction="#searchAction" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
-         </children>
-      </AnchorPane>
+      <AnchorPane layoutX="50.0" layoutY="14.0" prefHeight="110.0" prefWidth="200.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <JFXButton layoutX="32.0" layoutY="41.0" onAction="#backAction" prefHeight="48.0" prefWidth="83.0" style="-fx-background-color: #ff996a;" text="Back" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="bookTableView" editable="true" fixedCellSize="0.0" focusTraversable="false" layoutX="54.0" layoutY="203.0" pickOnBounds="false" prefHeight="546.0" prefWidth="635.0" style="-fx-background-color: #ffe0b2;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="200.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </TableView>
+      <JFXButton fx:id="allrec" layoutX="74.0" layoutY="558.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
+      <JFXTextField fx:id="searchfield" focusColor="#405aa800" layoutX="36.0" layoutY="159.0" prefHeight="27.0" prefWidth="388.0" promptText="Scan or Enter bookId to Issue " unFocusColor="#4d4d4d00" />
+      <JFXButton layoutX="451.0" layoutY="153.0" onAction="#searchAction" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
    </children>
 </AnchorPane>

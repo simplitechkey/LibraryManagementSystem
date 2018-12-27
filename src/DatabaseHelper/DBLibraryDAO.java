@@ -59,9 +59,12 @@ fmt.format("delete from totalNumberofBooks where bookId = %d ;", bookId);
     }
 
 public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
-    
+      String sql2="insert into tableReturnedBooks SELECT totalNumberofBooks.bookId, totalNumberofBooks.bookSubject,totalNumberofBooks.bookBranch , totalNumberofBooks.bookTitle, totalNumberofBooks.bookAccNo, totalNumberofBooks.bookAuthor , totalNumberofBooks.bookPublication, totalNumberofBooks.bookPrice,  totalNumberofBooks.bookYear,  totalNumberofBooks.bookEditionYear,  totalNumberofBooks.bookSupplier, totalNumberofBooks.billNo,  totalNumberofBooks.billDate FROM totalNumberofBooks LEFT JOIN tableIssuedBooks ON totalNumberofBooks.bookId = tableIssuedBooks.bookId where tableIssuedBooks.bookId is null;";
+
          String sql="select * from totalNumberofBooks";
      try{
+        DBUtil.dbexcuteQuery(sql2);
+       
       ResultSet rs=DBUtil.dbExecute(sql);
       ObservableList<DatabaseSample> allBooksList=DBLibraryDAO.getBookObjects(rs);
        
@@ -109,13 +112,15 @@ public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
      
      public static ObservableList<ReturnedBookObject> getAllReturnedBooksRecords() throws Exception{
     
-         String sql="select * from tableReturnedBooks";
+         String sql="SELECT * from tableReturnedBooks;";
+        
      try{
       ResultSet rs=DBUtil.dbExecute(sql);
       ObservableList<ReturnedBookObject> bookList=FXCollections.observableArrayList();
         while(rs.next()){
+            
             bookList.add(new ReturnedBookObject(rs.getInt("bookId"),rs.getString("bookSubject"),rs.getString("bookBranch"),rs.getString("bookTitle"),rs.getInt("bookAccNo"),rs.getString("bookAuthor"),rs.getString("bookPublication"),rs.getString("bookPrice"),rs.getString("bookYear"),rs.getString("bookEditionYear"),rs.getString("bookSupplier"),rs.getString("billNo"),rs.getString("billDate")));
-            System.out.println("omkar"+rs.getString("bookBranch"));
+            System.out.println("omkar id +"+rs.getInt("bookId"));
             }
              return bookList;
            
@@ -203,11 +208,10 @@ public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
          ResultSet rs=DBUtil.dbExecute(sbuf.toString());
        ObservableList<IssuedBookObject> bookList=FXCollections.observableArrayList();
         if(rs.next()){
-            //bookList.add(new IssuedBookObject(rs.getInt("bookId"),rs.getString("bookSubject"),rs.getString("bookBranch"),rs.getString("bookTitle"),rs.getInt("bookAccNo"),rs.getString("bookAuthor"),rs.getString("bookPublication"),rs.getString("bookPrice"),rs.getString("bookYear"),rs.getString("bookEditionYear"),rs.getString("bookSupplier"),rs.getString("billNo"),rs.getString("billDate")));
-              StringBuilder deleteStmnt = new StringBuilder();
+     StringBuilder deleteStmnt = new StringBuilder();
     Formatter fmtdel = new Formatter(deleteStmnt);
     fmtdel.format("delete from tableReturnedBooks where bookId = %d ;", bookId);
-            
+           DBUtil.dbexcuteQuery(deleteStmnt.toString());
             }
             
       
@@ -265,5 +269,7 @@ public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
             
         }
     }
+    
+    
     
 }

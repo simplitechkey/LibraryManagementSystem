@@ -14,9 +14,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #393939;" stylesheets="@FullScreen.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bvjiniolibrarymanagement.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: white; -fx-background-radius: 50; -fx-border-color: #ff996a; -fx-border-width: 10;" stylesheets="@FullScreen.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bvjiniolibrarymanagement.FXMLDocumentController">
     <children>
-        <Label fx:id="label" contentDisplay="CENTER" layoutX="109.0" layoutY="35.0" prefHeight="42.0" prefWidth="323.0" text="Library Management System" textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="label" contentDisplay="CENTER" layoutX="109.0" layoutY="35.0" prefHeight="42.0" prefWidth="323.0" text="Library Management System" textAlignment="CENTER" textFill="#ee8254">
          <font>
             <Font name="Arial Black" size="18.0" />
          </font>
@@ -24,7 +24,7 @@
             <Insets left="30.0" />
          </padding>
       </Label>
-      <JFXTextField fx:id="loginfield" focusColor="#ffffff00" layoutX="131.0" layoutY="269.0" prefHeight="40.0" prefWidth="230.0" promptText="Username" style="-fx-background-color: white; -fx-background-radius: 20;" unFocusColor="#ffffff00">
+      <JFXTextField fx:id="loginfield" focusColor="#ffffff00" layoutX="131.0" layoutY="269.0" prefHeight="40.0" prefWidth="230.0" promptText="Username" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" unFocusColor="#ffffff00">
          <font>
             <Font size="18.0" />
          </font>
@@ -36,7 +36,7 @@
          </padding>
       </JFXTextField>
       <FontAwesomeIconView glyphName="USER" layoutX="329.0" layoutY="293.0" size="17.0" text="" />
-      <JFXPasswordField fx:id="passwordfield" layoutX="131.0" layoutY="336.0" prefHeight="40.0" prefWidth="230.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 20;" unFocusColor="#ffffff00">
+      <JFXPasswordField fx:id="passwordfield" layoutX="131.0" layoutY="336.0" prefHeight="40.0" prefWidth="230.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" unFocusColor="#ffffff00">
          <font>
             <Font size="18.0" />
          </font>
