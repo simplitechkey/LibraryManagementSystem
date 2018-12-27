@@ -82,8 +82,16 @@ public class AddBookController implements Initializable {
        try {
           
           Stage stagetemp = (Stage) bookNoField.getScene().getWindow();
-    // do what you have to do
-            stagetemp.close();
+           stagetemp.close();
+           
+           Stage stage=new Stage();
+         AnchorPane root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/Dashboard/Dashboard.fxml"));
+            Scene scene = new Scene(root,1200,600);
+            // stage.initStyle(StageStyle.UTILITY);
+             stage.setResizable(false);
+             stage.setTitle("Add New Book");
+            stage.setScene(scene);
+            stage.show();
           
        } catch (Exception ex) {
            Logger.getLogger(AddBookController.class.getName()).log(Level.SEVERE, null, ex);

@@ -59,13 +59,14 @@ fmt.format("delete from totalNumberofBooks where bookId = %d ;", bookId);
     }
 
 public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
-      String sql2="insert into tableReturnedBooks SELECT totalNumberofBooks.bookId, totalNumberofBooks.bookSubject,totalNumberofBooks.bookBranch , totalNumberofBooks.bookTitle, totalNumberofBooks.bookAccNo, totalNumberofBooks.bookAuthor , totalNumberofBooks.bookPublication, totalNumberofBooks.bookPrice,  totalNumberofBooks.bookYear,  totalNumberofBooks.bookEditionYear,  totalNumberofBooks.bookSupplier, totalNumberofBooks.billNo,  totalNumberofBooks.billDate FROM totalNumberofBooks LEFT JOIN tableIssuedBooks ON totalNumberofBooks.bookId = tableIssuedBooks.bookId where tableIssuedBooks.bookId is null;";
+      
 
          String sql="select * from totalNumberofBooks";
      try{
-        DBUtil.dbexcuteQuery(sql2);
+       
        
       ResultSet rs=DBUtil.dbExecute(sql);
+      
       ObservableList<DatabaseSample> allBooksList=DBLibraryDAO.getBookObjects(rs);
        
       return allBooksList;
@@ -143,7 +144,7 @@ public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
         throw e;}
     
 }
-    public static ObservableList<ReturnedBookObject> searchReturnedBookBookById(int bookId) throws Exception{
+    public static ObservableList<ReturnedBookObject> searchReturnedBookById(int bookId) throws Exception{
         StringBuilder sbuf = new StringBuilder();
     Formatter fmt = new Formatter(sbuf);
     fmt.format("Select * from tableReturnedBooks where bookId = %d ;", bookId);
@@ -257,6 +258,7 @@ public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
               StringBuilder deleteStmnt = new StringBuilder();
     Formatter fmtdel = new Formatter(deleteStmnt);
     fmtdel.format("delete from tableIssuedBooks where bookId = %d ;", bookId);
+    DBUtil.dbexcuteQuery(deleteStmnt.toString());
             
             }
             

@@ -5,6 +5,7 @@
  */
 package bvjiniolibrarymanagement;
 
+import DialogBox.DialogBox;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -56,9 +57,7 @@ public class FXMLDocumentController implements Initializable {
             String uname=loginfield.getText();
             String pass=passwordfield.getText();
              if(uname.equals("") || pass.equals("")){
-                     Alert alert = new Alert(AlertType.WARNING);
-                     alert.setContentText("Username and Password cannot be blank");
-                     alert.showAndWait();
+                    DialogBox.showDialog(DialogBox.user_pass_blank);
                      loginfield.setText("");
                      passwordfield.setText("");
              }else{

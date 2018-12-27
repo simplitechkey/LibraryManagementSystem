@@ -6,6 +6,7 @@
 package bvjiniolibrarymanagement;
 
 import DatabaseHelper.DBLibraryDAO;
+import DatabaseHelper.DBUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,7 +28,13 @@ public class BvjinioLibraryManagement extends Application {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
-        DBLibraryDAO.getAllRecords();
+         String sql1="delete from tableReturnedBooks";
+                String sql2="insert into tableReturnedBooks SELECT totalNumberofBooks.bookId, totalNumberofBooks.bookSubject,totalNumberofBooks.bookBranch , totalNumberofBooks.bookTitle, totalNumberofBooks.bookAccNo, totalNumberofBooks.bookAuthor , totalNumberofBooks.bookPublication, totalNumberofBooks.bookPrice,  totalNumberofBooks.bookYear,  totalNumberofBooks.bookEditionYear,  totalNumberofBooks.bookSupplier, totalNumberofBooks.billNo,  totalNumberofBooks.billDate FROM totalNumberofBooks LEFT JOIN tableIssuedBooks ON totalNumberofBooks.bookId = tableIssuedBooks.bookId where tableIssuedBooks.bookId is null;";
+        DBUtil.dbexcuteQuery(sql1);
+                DBUtil.dbexcuteQuery(sql2);       
+      DBLibraryDAO.getAllRecords();
+      DBLibraryDAO.getAllIssuedBooksRecords();
+      DBLibraryDAO.getAllReturnedBooksRecords();
     }
 
     /**

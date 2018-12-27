@@ -19,10 +19,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -51,7 +54,14 @@ public class ReturnedBooksTableController implements Initializable {
           Stage stagetemp = (Stage) searchfield.getScene().getWindow();
     // do what you have to do
             stagetemp.close();
-          
+          Stage stage=new Stage();
+         AnchorPane root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/Dashboard/Dashboard.fxml"));
+            Scene scene = new Scene(root,1200,600);
+            // stage.initStyle(StageStyle.UTILITY);
+             stage.setResizable(false);
+             stage.setTitle("Add New Book");
+            stage.setScene(scene);
+            stage.show();
        } catch (Exception ex) {
            Logger.getLogger(AddBookController.class.getName()).log(Level.SEVERE, null, ex);
        }
@@ -68,7 +78,7 @@ public class ReturnedBooksTableController implements Initializable {
     @FXML
     void searchAction(ActionEvent event) {
         try {
-            data=DBLibraryDAO.searchReturnedBookBookById(Integer.parseInt(searchfield.getText()));
+            data=DBLibraryDAO.searchReturnedBookById(Integer.parseInt(searchfield.getText()));
             
            bookTableView.setItems(data);
         } catch (Exception ex) {

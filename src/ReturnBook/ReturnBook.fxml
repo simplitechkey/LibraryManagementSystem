@@ -22,7 +22,12 @@
          </effect>
       </TableView>
       <JFXButton fx:id="allrec" layoutX="74.0" layoutY="558.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
-      <JFXTextField fx:id="searchfield" focusColor="#405aa800" layoutX="36.0" layoutY="159.0" prefHeight="27.0" prefWidth="388.0" promptText="Scan or Enter bookId to Issue " unFocusColor="#4d4d4d00" />
-      <JFXButton layoutX="451.0" layoutY="153.0" onAction="#searchAction" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
+      <JFXTextField fx:id="searchfield" focusColor="#405aa800" layoutX="224.0" layoutY="159.0" prefHeight="27.0" prefWidth="219.0" promptText="Scan or Enter bookId to Return " unFocusColor="#4d4d4d00" />
+      <JFXButton layoutX="65.0" layoutY="153.0" onAction="#searchAction" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
+      <JFXButton fx:id="returnBtn" layoutX="487.0" layoutY="154.0" onAction="#returnBookAction" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #ff996a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" text="Return this Book" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

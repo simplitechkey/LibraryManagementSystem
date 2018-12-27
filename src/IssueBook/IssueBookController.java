@@ -8,6 +8,7 @@ package IssueBook;
 import AddBookEntry.AddBookController;
 import BeansPackage.ReturnedBookObject;
 import DatabaseHelper.DBLibraryDAO;
+import DialogBox.DialogBox;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -18,10 +19,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -42,23 +46,51 @@ public class IssueBookController implements Initializable {
 
     @FXML
     private JFXButton allrec;
+    
+    @FXML
+    private JFXButton issueBtn;
 
     @FXML
     private JFXTextField searchfield;
+   
     @FXML
     void issueBookAction(ActionEvent event) {
-        try {
-            DBLibraryDAO.issueBookfromTotalBooks(Integer.parseInt(searchfield.getText()));
+      try {
+        
+            if((searchfield.getText().trim().isEmpty() || (searchfield.getText() == null))) {
+          DialogBox.showDialog(DialogBox.dialog_text_null);
+           issueBtn.setVisible(false);
+            bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
+        }else{
+            DBLibraryDAO.returnBookfromIssuedBooks(Integer.parseInt(searchfield.getText()));
+            DialogBox.showDialog(DialogBox.dialog_issue_successful);
+             bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
+             bookTableView.refresh();
+            }
         } catch (Exception ex) {
             Logger.getLogger(IssueBookController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
 
     @FXML
     void searchAction(ActionEvent event) {
-        try {
-            data=DBLibraryDAO.searchReturnedBookBookById(Integer.parseInt(searchfield.getText()));
+         try {
+             data=DBLibraryDAO.searchReturnedBookById(Integer.parseInt(searchfield.getText()));
+        if((searchfield.getText().trim().isEmpty() || (searchfield.getText() == null))) {
+          DialogBox.showDialog(DialogBox.dialog_text_null);
+           issueBtn.setVisible(false);
+            bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
+        }else{
+            if(!searchfield.getText().trim().isEmpty() && data.isEmpty()){
+                DialogBox.showDialog(DialogBox.no_values_found);
+                  issueBtn.setVisible(false);
+            }else{
+            //data=DBLibraryDAO.searchIssuedBookBookById(Integer.parseInt(searchfield.getText()));
+            issueBtn.setVisible(true);
             bookTableView.setItems(data);
+        }
+        }
+            
         } catch (Exception ex) {
             Logger.getLogger(IssueBookController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -78,9 +110,16 @@ public class IssueBookController implements Initializable {
        try {
           
           Stage stagetemp = (Stage) searchfield.getScene().getWindow();
-    // do what you have to do
+    
             stagetemp.close();
-          
+          Stage stage=new Stage();
+         AnchorPane root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/Dashboard/Dashboard.fxml"));
+            Scene scene = new Scene(root,1200,600);
+            // stage.initStyle(StageStyle.UTILITY);
+             stage.setResizable(false);
+             stage.setTitle("Add New Book");
+            stage.setScene(scene);
+            stage.show();
           
        } catch (Exception ex) {
            Logger.getLogger(AddBookController.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,6 +127,7 @@ public class IssueBookController implements Initializable {
     }
    
     @Override
+    @SuppressWarnings("unchecked")
     public void initialize(URL url, ResourceBundle rb) {
           try {
               TableColumn<ReturnedBookObject,Integer> bookId=new TableColumn("bookID");
@@ -130,9 +170,8 @@ public class IssueBookController implements Initializable {
               bookbillDate.setCellValueFactory(new PropertyValueFactory<>("billDate"));
               
               
-              
+              issueBtn.setVisible(false);
               bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
-              // loadDatabaseData();
               bookTableView.getColumns().addAll(bookId,bookSubject,bookBranch,bookTitle,bookAccountNumber,bookAuthor,bookPublication,bookPrice,bookYear,bookEditionYear,bookSupplier,billNumber,bookbillDate);
           } catch (Exception ex) {
               Logger.getLogger(IssueBookController.class.getName()).log(Level.SEVERE, null, ex);

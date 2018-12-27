@@ -3,19 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fromDashboard;
+package DeleteBookEntry;
 
 import AddBookEntry.AddBookController;
 import BeansPackage.DatabaseSample;
 import DatabaseHelper.DBLibraryDAO;
 import DatabaseHelper.DBUtil;
+import DialogBox.DialogBox;
+import IssueBook.IssueBookController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import fromDashboard.TotalNumberofBooksController;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,41 +39,50 @@ import javafx.stage.StageStyle;
  *
  * @author omkarkamate
  */
-public class TotalNumberofBooksController implements Initializable {
+public class DeleteBookEntryController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
+    
     ObservableList<DatabaseSample> data=FXCollections.observableArrayList();
          
     @FXML
    TableView<DatabaseSample> bookTableView;
      
-   
-   
+   @FXML
+    private JFXButton deleteBtn;
 
-    @FXML
-    private JFXTextField branchField;
-
-    @FXML
-    private JFXTextField subjectField;
-
-    @FXML
-    private JFXTextField idField;
     
+       
     @FXML
     private JFXTextField searchfield;
-    @FXML
-    private JFXButton allrec;
+    
+ 
     
     @FXML
     void searchAction(ActionEvent event) {
-        try {
-           
-            data=DBLibraryDAO.searchBookById(Integer.parseInt(searchfield.getText()));
+      try {
+             data=DBLibraryDAO.getAllRecords();
+        if((searchfield.getText().trim().isEmpty() || (searchfield.getText() == null))) {
+          DialogBox.showDialog(DialogBox.dialog_text_null);
+           deleteBtn.setVisible(false);
+            bookTableView.setItems(DBLibraryDAO.getAllRecords());
+        }else{
+            if(!searchfield.getText().trim().isEmpty() && data.isEmpty()){
+                DialogBox.showDialog(DialogBox.no_values_found);
+                  deleteBtn.setVisible(false);
+            }else{
+            //data=DBLibraryDAO.searchIssuedBookBookById(Integer.parseInt(searchfield.getText()));
+            deleteBtn.setVisible(true);
             bookTableView.setItems(data);
+        }
+        }
+            
         } catch (Exception ex) {
-            Logger.getLogger(TotalNumberofBooksController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IssueBookController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -104,19 +114,10 @@ public class TotalNumberofBooksController implements Initializable {
            Logger.getLogger(AddBookController.class.getName()).log(Level.SEVERE, null, ex);
        }
     }
-    @FXML
-    void addAction(ActionEvent event) {
-        try {
-            //DBLibraryDAO.insertBook(Integer.parseInt(idField.getText()), subjectField.getText(), branchField.getText());
-           bookTableView.setItems(DBLibraryDAO.getAllRecords());
-           bookTableView.refresh();
-        } catch (Exception ex) {
-            Logger.getLogger(TotalNumberofBooksController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+ 
 
     @FXML
-    void deleteAction(ActionEvent event) {
+    void deleteBookAction(ActionEvent event) {
         try{
         DBLibraryDAO.deleteBookbyID(Integer.parseInt(searchfield.getText()));
          bookTableView.setItems(DBLibraryDAO.getAllRecords());
@@ -126,15 +127,7 @@ public class TotalNumberofBooksController implements Initializable {
         }
     }
 
-    @FXML
-    void updateAction(ActionEvent event) {
-            try{
-                DBLibraryDAO.updateBook(Integer.parseInt(searchfield.getText()), subjectField.getText());
-                    bookTableView.setItems(DBLibraryDAO.getAllRecords());
-                     bookTableView.refresh();
-            }catch(Exception e){
-            }
-    }
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -189,27 +182,5 @@ public class TotalNumberofBooksController implements Initializable {
     } 
     
     
-     public void loadDatabaseData(){
-                     
-              String query="select * from totalNumberofBooks";
-            
-              ResultSet rs;
-              try{
-                    rs=DBUtil.dbExecute(query);
-                    while(rs.next()){
-                 // data.add(new DatabaseSample(rs.getInt("bookId"),rs.getString("bookSubject"),rs.getString("bookBranch")  ));
-                  bookTableView.setItems(data);
-                  System.out.println
-                          (rs);
-              
-                    }
-              rs.close();
-          } catch (Exception ex) {
-            //  Logger.getLogger(th.class.getName()).log(Level.SEVERE, null, ex);
-          }
-     }
+    
 }
-    
-    
-    
-
