@@ -46,7 +46,9 @@ public class LibraryDashBoardController implements Initializable {
      * @param url
      * @param rb
      */
-    
+     String totalBooks="";
+        String totalIssuedBooks="";
+        String remainingBooks="";
           @FXML
     private  TextField labelTotalEntries;
           
@@ -87,6 +89,7 @@ public class LibraryDashBoardController implements Initializable {
                   Parent root = FXMLLoader.load(getClass().getResource("/DeleteBookEntry/DeleteBookEntry.fxml"));
                   Stage stage=new Stage();
                   Scene scene = new Scene(root,1200,600);
+                   stage.setTitle("Delete Book");
                   //stage.initStyle(StageStyle.UNDECORATED);
                   stage.setScene(scene);
                   stage.show();
@@ -104,6 +107,7 @@ public class LibraryDashBoardController implements Initializable {
                   AnchorPane root = FXMLLoader.load(getClass().getResource("/IssueBook/IssueBook.fxml"));
                   Stage stage=new Stage();
                   Scene scene = new Scene(root,1200,600);
+                   stage.setTitle("Issue a book from Total Books");
                   //stage.initStyle(StageStyle.UNDECORATED);
                   stage.setScene(scene);
                   stage.show();
@@ -120,6 +124,7 @@ public class LibraryDashBoardController implements Initializable {
                AnchorPane root = FXMLLoader.load(getClass().getResource("/AddBookEntry/AddBookEntry.fxml"));
                Stage stage=new Stage();
                Scene scene = new Scene(root,1200,600);
+                stage.setTitle("Add New Book");
                //stage.initStyle(StageStyle.UNDECORATED);
                stage.setScene(scene);
                stage.show();
@@ -136,6 +141,7 @@ public class LibraryDashBoardController implements Initializable {
                   AnchorPane root = FXMLLoader.load(getClass().getResource("/ReturnBook/ReturnBook.fxml"));
                   Stage stage=new Stage();
                   Scene scene = new Scene(root,1200,600);
+                   stage.setTitle("Total Issued Books");
                   //stage.initStyle(StageStyle.UNDECORATED);
                   stage.setScene(scene);
                   stage.show();
@@ -189,7 +195,6 @@ public class LibraryDashBoardController implements Initializable {
                stage=new Stage();
                Parent root = FXMLLoader.load(getClass().getResource("/fromDashboard/ReturnedBooksTable.fxml"));
                Scene scene = new Scene(root,1200,600);
-        
                stage.setResizable(false);
                stage.setTitle("Return Book");
                stage.setScene(scene);
@@ -200,17 +205,33 @@ public class LibraryDashBoardController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         labelTotalEntries.setStyle("-fx-text-fill: white;");
+       
               try {
-                  Timeline timeline = new Timeline(
-            new KeyFrame(Duration.seconds(2), (ActionEvent actionEvent) -> {
-                // Call refreshDashBoard method for every 2 sec.
-                refreshDashBoard();
-                  }));
-    timeline.setCycleCount(Animation.INDEFINITE);
-    timeline.play();
-                          
-                                      
+                  System.out.println("init of lib dash");
+                  totalBooks=String.valueOf(DBLibraryDAO.getAllRecords().size());
+                  totalIssuedBooks=String.valueOf(String.valueOf(DBLibraryDAO.getAllIssuedBooksRecords().size()));
+                  remainingBooks=String.valueOf((DBLibraryDAO.getAllRecords().size()-DBLibraryDAO.getAllIssuedBooksRecords().size()));
+                  labelTotalEntries.setStyle("-fx-text-fill: white;");
+                  refreshDashBoard();
+               
+                    /*  Timeline timeline = new Timeline(
+                              new KeyFrame(Duration.seconds(0.5), (ActionEvent actionEvent) -> {
+                                  // Call refreshDashBoard method for every 2 sec.
+                                  refreshDashBoard();
+                                  
+                              }));
+                      timeline.setCycleCount(Animation.INDEFINITE);
+                      timeline.play();*/
+                      String sql1="delete from tableReturnedBooks";
+                      String sql2="insert into tableReturnedBooks SELECT totalNumberofBooks.bookId, totalNumberofBooks.bookSubject,totalNumberofBooks.bookBranch , totalNumberofBooks.bookTitle, totalNumberofBooks.bookAccNo, totalNumberofBooks.bookAuthor , totalNumberofBooks.bookPublication, totalNumberofBooks.bookPrice,  totalNumberofBooks.bookYear,  totalNumberofBooks.bookEditionYear,  totalNumberofBooks.bookSupplier, totalNumberofBooks.billNo,  totalNumberofBooks.billDate FROM totalNumberofBooks LEFT JOIN tableIssuedBooks ON totalNumberofBooks.bookId = tableIssuedBooks.bookId where tableIssuedBooks.bookId is null;";
+                      DBUtil.dbexcuteQuery(sql1);
+                      DBUtil.dbexcuteQuery(sql2);
+                      DBLibraryDAO.getAllRecords();
+                      DBLibraryDAO.getAllIssuedBooksRecords();
+                      DBLibraryDAO.getAllReturnedBooksRecords();
+                      
+                
+                  
               } catch (Exception ex) {
                   Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
               }
@@ -219,9 +240,7 @@ public class LibraryDashBoardController implements Initializable {
 
     private void refreshDashBoard() {
               try {
-                  String totalBooks=String.valueOf(DBLibraryDAO.getAllRecords().size());
-                  String totalIssuedBooks=String.valueOf(String.valueOf(DBLibraryDAO.getAllIssuedBooksRecords().size()));
-                  String remainingBooks=String.valueOf((DBLibraryDAO.getAllRecords().size()-DBLibraryDAO.getAllIssuedBooksRecords().size()));
+                 
                  
                   labelTotalEntries.setText(totalBooks);
                   

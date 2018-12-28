@@ -5,7 +5,11 @@
  */
 package bvjiniolibrarymanagement;
 
+import DatabaseHelper.DBLibraryDAO;
+import DatabaseHelper.DBUtil;
 import DialogBox.DialogBox;
+import animatefx.animation.AnimateFXInterpolator;
+import animatefx.animation.FadeIn;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -96,7 +100,8 @@ public class FXMLDocumentController implements Initializable {
              stage.setResizable(false);
              stage.setTitle("Add New Book");
             stage.setScene(scene);
-        } catch (IOException ex) {
+            
+        } catch (Exception ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
  }    

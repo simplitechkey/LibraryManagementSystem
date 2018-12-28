@@ -21,6 +21,8 @@ public  class DialogBox {
     public static final int record_added=5;
     public static final int user_pass_blank=6;
     public static final int no_values_found=7;
+    public static final int field_empty=8;
+     public static final int duplicate_Entry=9;
     
 
     
@@ -72,6 +74,20 @@ public  class DialogBox {
                 Alert alertnoval = new Alert(Alert.AlertType.ERROR);
                 alertnoval.setContentText("No Values found.Enter Another Query");
                 alertnoval.showAndWait();
+                break;
+                
+            case field_empty:
+                Alert emptyAlert=new Alert(Alert.AlertType.ERROR);
+                emptyAlert.setContentText("One or More Field Are Empty");
+                emptyAlert.showAndWait();
+                break;
+            
+                
+            case duplicate_Entry:
+                Alert duplicateAlert=new Alert(Alert.AlertType.ERROR);
+                duplicateAlert.setHeaderText("Insertion Error");
+                duplicateAlert.setContentText("Duplicate Entry Found. Book ID already present in databse");
+                duplicateAlert.showAndWait();
                 break;
                
             default:

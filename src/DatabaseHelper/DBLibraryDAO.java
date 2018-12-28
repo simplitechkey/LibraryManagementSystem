@@ -84,7 +84,7 @@ public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
            
             while(rs.next()){
             bookList.add(new DatabaseSample(rs.getInt("bookId"),rs.getString("bookSubject"),rs.getString("bookBranch"),rs.getString("bookTitle"),rs.getInt("bookAccNo"),rs.getString("bookAuthor"),rs.getString("bookPublication"),rs.getString("bookPrice"),rs.getString("bookYear"),rs.getString("bookEditionYear"),rs.getString("bookSupplier"),rs.getString("billNo"),rs.getString("billDate")));
-            System.out.println("omkar"+rs.getString("bookBranch"));
+            //System.out.println("omkar"+rs.getString("bookBranch"));
             }
              return bookList;
         } catch (SQLException ex) {
@@ -101,7 +101,7 @@ public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
       ObservableList<IssuedBookObject> bookList=FXCollections.observableArrayList();
         while(rs.next()){
             bookList.add(new IssuedBookObject(rs.getInt("bookId"),rs.getString("bookSubject"),rs.getString("bookBranch"),rs.getString("bookTitle"),rs.getInt("bookAccNo"),rs.getString("bookAuthor"),rs.getString("bookPublication"),rs.getString("bookPrice"),rs.getString("bookYear"),rs.getString("bookEditionYear"),rs.getString("bookSupplier"),rs.getString("billNo"),rs.getString("billDate")));
-            System.out.println("omkar"+rs.getString("bookBranch"));
+            //System.out.println("omkar"+rs.getString("bookBranch"));
             }
              return bookList;
            
@@ -121,7 +121,7 @@ public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
         while(rs.next()){
             
             bookList.add(new ReturnedBookObject(rs.getInt("bookId"),rs.getString("bookSubject"),rs.getString("bookBranch"),rs.getString("bookTitle"),rs.getInt("bookAccNo"),rs.getString("bookAuthor"),rs.getString("bookPublication"),rs.getString("bookPrice"),rs.getString("bookYear"),rs.getString("bookEditionYear"),rs.getString("bookSupplier"),rs.getString("billNo"),rs.getString("billDate")));
-            System.out.println("omkar id +"+rs.getInt("bookId"));
+            //System.out.println("omkar id +"+rs.getInt("bookId"));
             }
              return bookList;
            
@@ -198,7 +198,7 @@ public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
     
     }
 
-    private static void removeEntryfromReturnedIfAvailable(int bookId) {
+    public static void removeEntryfromReturnedIfAvailable(int bookId) {
         try{
             
             StringBuilder sbuf = new StringBuilder();
@@ -242,7 +242,7 @@ public static ObservableList<DatabaseSample> getAllRecords() throws Exception{
     
     }
 
-    private static void removeEntryfromIssuedIfAvailable(int bookId) {
+    public static void removeEntryfromIssuedIfAvailable(int bookId) {
           
         try{
             

@@ -42,12 +42,12 @@
                   <DropShadow />
                </effect>
                <children>
-                  <Label layoutX="52.0" layoutY="79.0" onMousePressed="#totalbookscreenpress" prefHeight="39.0" prefWidth="237.0" text="Total Number of Books" textFill="WHITE">
+                  <Label layoutX="52.0" layoutY="79.0" prefHeight="39.0" prefWidth="237.0" text="Total Number of Books" textFill="WHITE">
                      <font>
                         <Font name="Al Bayan Plain" size="18.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="labelTotalEntries" alignment="CENTER" editable="false" focusColor="#ffffff00" layoutX="65.0" layoutY="14.0" prefHeight="39.0" prefWidth="153.0" promptText="sad" style="-fx-background-color: transparent;" unFocusColor="#4d4d4d00">
+                  <JFXTextField fx:id="labelTotalEntries" alignment="CENTER" editable="false" focusColor="#ffffff00" layoutX="65.0" layoutY="14.0" prefHeight="67.0" prefWidth="176.0" promptText="sad" style="-fx-background-color: transparent;" text="Loading..." unFocusColor="#4d4d4d00">
                      <font>
                         <Font name="System Bold" size="35.0" />
                      </font>
@@ -64,7 +64,7 @@
                         <Font name="Al Bayan Plain" size="18.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="labelnumberofbooksIssued" alignment="CENTER" editable="false" focusColor="#ffffff00" layoutX="66.0" layoutY="14.0" prefHeight="39.0" prefWidth="151.0" promptText="asdsa" unFocusColor="#4d4d4d00">
+                  <JFXTextField fx:id="labelnumberofbooksIssued" alignment="CENTER" editable="false" focusColor="#ffffff00" layoutX="54.0" layoutY="14.0" prefHeight="67.0" prefWidth="176.0" promptText="asdsa" text="Loading..." unFocusColor="#4d4d4d00">
                      <font>
                         <Font size="35.0" />
                      </font>
@@ -81,7 +81,7 @@
                         <Font name="Al Bayan Plain" size="18.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="booksRemainingLabel" alignment="CENTER" editable="false" focusColor="#ffffff00" layoutX="76.0" layoutY="14.0" prefHeight="39.0" prefWidth="153.0" promptText="sad" style="-fx-background-color: transparent;" unFocusColor="#4d4d4d00">
+                  <JFXTextField fx:id="booksRemainingLabel" alignment="CENTER" editable="false" focusColor="#ffffff00" layoutX="53.0" layoutY="14.0" prefHeight="67.0" prefWidth="176.0" promptText="sad" style="-fx-background-color: transparent;" text="Loading..." unFocusColor="#4d4d4d00">
                      <font>
                         <Font name="System Bold" size="35.0" />
                      </font>
@@ -98,7 +98,7 @@
                         <Font name="Al Bayan Plain" size="18.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="booksRemaininglabel" alignment="CENTER" editable="false" focusColor="#ffffff00" layoutX="87.0" layoutY="10.0" prefHeight="39.0" prefWidth="153.0" promptText="sad" style="-fx-background-color: transparent;" unFocusColor="#4d4d4d00">
+                  <JFXTextField fx:id="booksRemaininglabel" alignment="CENTER" editable="false" focusColor="#ffffff00" layoutX="65.0" layoutY="14.0" prefHeight="67.0" prefWidth="176.0" promptText="sad" style="-fx-background-color: transparent;" text="Loading..." unFocusColor="#4d4d4d00">
                      <font>
                         <Font name="System Bold" size="35.0" />
                      </font>

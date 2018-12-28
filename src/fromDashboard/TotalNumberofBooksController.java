@@ -9,6 +9,7 @@ import AddBookEntry.AddBookController;
 import BeansPackage.DatabaseSample;
 import DatabaseHelper.DBLibraryDAO;
 import DatabaseHelper.DBUtil;
+import DialogBox.DialogBox;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
@@ -68,9 +69,15 @@ public class TotalNumberofBooksController implements Initializable {
     @FXML
     void searchAction(ActionEvent event) {
         try {
-           
+               if((searchfield.getText().trim().isEmpty() || (searchfield.getText() == null))) {
+            DialogBox.showDialog(DialogBox.dialog_text_null);
+            bookTableView.setItems(DBLibraryDAO.getAllRecords());
+              bookTableView.refresh();
+        }else{
             data=DBLibraryDAO.searchBookById(Integer.parseInt(searchfield.getText()));
             bookTableView.setItems(data);
+              bookTableView.refresh();
+               }
         } catch (Exception ex) {
             Logger.getLogger(TotalNumberofBooksController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -8,6 +8,7 @@ package fromDashboard;
 import AddBookEntry.AddBookController;
 import BeansPackage.ReturnedBookObject;
 import DatabaseHelper.DBLibraryDAO;
+import DialogBox.DialogBox;
 import IssueBook.IssueBookController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -78,9 +79,16 @@ public class ReturnedBooksTableController implements Initializable {
     @FXML
     void searchAction(ActionEvent event) {
         try {
+             if((searchfield.getText().trim().isEmpty() || (searchfield.getText() == null))) {
+            DialogBox.showDialog(DialogBox.dialog_text_null);
+            bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
+              bookTableView.refresh();
+             }else{
             data=DBLibraryDAO.searchReturnedBookById(Integer.parseInt(searchfield.getText()));
-            
-           bookTableView.setItems(data);
+            bookTableView.setItems(data);
+            bookTableView.refresh();
+             } 
+           
         } catch (Exception ex) {
             Logger.getLogger(IssueBookController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -75,9 +75,9 @@ public class DeleteBookEntryController implements Initializable {
                 DialogBox.showDialog(DialogBox.no_values_found);
                   deleteBtn.setVisible(false);
             }else{
-            //data=DBLibraryDAO.searchIssuedBookBookById(Integer.parseInt(searchfield.getText()));
+           
             deleteBtn.setVisible(true);
-            bookTableView.setItems(data);
+            bookTableView.setItems(DBLibraryDAO.searchBookById(Integer.parseInt(searchfield.getText())));
         }
         }
             
@@ -119,9 +119,20 @@ public class DeleteBookEntryController implements Initializable {
     @FXML
     void deleteBookAction(ActionEvent event) {
         try{
+              if((searchfield.getText().trim().isEmpty() || (searchfield.getText() == null))) {
+                  
+            DialogBox.showDialog(DialogBox.dialog_text_null);
+            deleteBtn.setVisible(false);
+            bookTableView.setItems(DBLibraryDAO.getAllRecords());
+              }
+              else{
         DBLibraryDAO.deleteBookbyID(Integer.parseInt(searchfield.getText()));
+        DBLibraryDAO.removeEntryfromIssuedIfAvailable(Integer.parseInt(searchfield.getText()));
+        DBLibraryDAO.removeEntryfromReturnedIfAvailable(Integer.parseInt(searchfield.getText()));
+        DialogBox.showDialog(DialogBox.delete_successful);
          bookTableView.setItems(DBLibraryDAO.getAllRecords());
           bookTableView.refresh();
+              }
         }catch(Exception e){
             
         }
@@ -173,7 +184,7 @@ public class DeleteBookEntryController implements Initializable {
                  
            
             bookTableView.setItems(DBLibraryDAO.getAllRecords());
-          // loadDatabaseData();
+          deleteBtn.setVisible(false);
             bookTableView.getColumns().addAll(bookId,bookSubject,bookBranch,bookTitle,bookAccountNumber,bookAuthor,bookPublication,bookPrice,bookYear,bookEditionYear,bookSupplier,billNumber,bookbillDate);
            
         } catch (Exception ex) {
