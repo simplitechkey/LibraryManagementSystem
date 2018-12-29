@@ -68,11 +68,9 @@ public class FXMLDocumentController implements Initializable {
             if(uname.equals("admin") && pass.equals("admin")){
              Stage stage2 = (Stage) login.getScene().getWindow();
              stage2.close();
-            
-               stage.show();
+            stage.show();
             }else{
-                
-               
+                               
                 Alert alert = new Alert(AlertType.WARNING);
                 alert.setTitle("Login Failed");
                 alert.setHeaderText("Wrong Username and Password");
@@ -94,7 +92,7 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
               stage=new Stage();
-            AnchorPane root = FXMLLoader.load(getClass().getResource("Dashboard/Dashboard.fxml"));
+            AnchorPane root = FXMLLoader.load(getClass().getResource("/Dashboard/Dashboard.fxml"));
             Scene scene = new Scene(root,1200,600);
             // stage.initStyle(StageStyle.UTILITY);
              stage.setResizable(false);

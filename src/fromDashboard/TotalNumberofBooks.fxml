@@ -2,10 +2,15 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="597.0" prefWidth="712.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fromDashboard.TotalNumberofBooksController">
    <children>
@@ -24,5 +29,24 @@
       <JFXButton fx:id="allrec" layoutX="59.0" layoutY="562.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
       <JFXTextField fx:id="searchfield" layoutX="163.0" layoutY="149.0" promptText="Enter Id to Search" />
       <JFXButton layoutX="372.0" layoutY="143.0" onAction="#searchAction" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
+      <Text fill="WHITE" layoutX="521.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="67.13671875" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="80.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="536.0" layoutY="111.0" size="80" wrappingWidth="60.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0" />
+      <JFXButton alignment="CENTER" buttonType="RAISED" focusTraversable="false" graphicTextGap="15.0" layoutX="552.0" layoutY="101.0" prefHeight="25.0" prefWidth="120.0" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Dashboard/logouticon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="27.0" layoutX="588.0" layoutY="89.0" stroke="BLACK" strokeType="INSIDE" width="5.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="80.0" />
    </children>
 </AnchorPane>

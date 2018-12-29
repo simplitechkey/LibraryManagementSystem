@@ -62,7 +62,7 @@ public class IssueBookController implements Initializable {
            issueBtn.setVisible(false);
             bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
         }else{
-            DBLibraryDAO.returnBookfromIssuedBooks(Integer.parseInt(searchfield.getText()));
+            DBLibraryDAO.issueBookfromTotalBooks(Integer.parseInt(searchfield.getText()));
             DialogBox.showDialog(DialogBox.dialog_issue_successful);
              bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
              bookTableView.refresh();
@@ -113,7 +113,7 @@ public class IssueBookController implements Initializable {
     
             stagetemp.close();
           Stage stage=new Stage();
-         AnchorPane root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/Dashboard/Dashboard.fxml"));
+         AnchorPane root = FXMLLoader.load(getClass().getResource("/Dashboard/Dashboard.fxml"));
             Scene scene = new Scene(root,1200,600);
             // stage.initStyle(StageStyle.UTILITY);
              stage.setResizable(false);

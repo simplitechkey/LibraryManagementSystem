@@ -100,7 +100,7 @@ public class TotalNumberofBooksController implements Initializable {
           Stage stagetemp = (Stage) searchfield.getScene().getWindow();
             stagetemp.close();
            Stage stage=new Stage();    
-         AnchorPane root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/Dashboard/Dashboard.fxml"));
+         AnchorPane root = FXMLLoader.load(getClass().getResource("/Dashboard/Dashboard.fxml"));
             Scene scene = new Scene(root,1200,600);
             stage.initStyle(StageStyle.UTILITY);
              stage.setResizable(false);

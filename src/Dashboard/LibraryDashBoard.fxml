@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bvjiniolibrarymanagement.Dashboard.LibraryDashBoardController">
+   <children>
+      <VBox layoutX="-9.0" layoutY="-9.0" prefHeight="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #393939;" />
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="250.0" style="-fx-background-color: #393939;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane opacity="0.88" prefHeight="197.0" prefWidth="200.0" styleClass="body" stylesheets="@FullScreen.css" />
+            <JFXButton alignment="CENTER" buttonType="RAISED" ellipsisString="" graphicTextGap="30.0" prefHeight="60.0" prefWidth="248.0" ripplerFill="#eb6932" style="-fx-background-radius: 10; -fx-background-color: #ff996a;" text="Add a book Entry" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>           
+               <effect>
+                  <DropShadow height="255.0" radius="127.0" spread="0.88" width="255.0" />
+               </effect>
+               <graphic>
+                  <FontAwesomeIconView glyphName="PLUS" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </VBox>
+      <PieChart layoutX="250.0" layoutY="100.0" legendSide="LEFT" title="Book Statistics" />
+   </children>
+</AnchorPane>

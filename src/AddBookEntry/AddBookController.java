@@ -85,6 +85,10 @@ public class AddBookController implements Initializable {
             if (!notDuplicateEntry()) {
                 DBLibraryDAO.insertBook(Integer.parseInt(bookIdField.getText()), bookSubjectField.getText(), bookBranchField.getText(), bookTitleField.getText(), Integer.parseInt(bookAccNoField.getText()), bookAuthorField.getText(), bookPublicationField.getText(), bookPriceField.getText(), bookYearField.getText(), bookEditionField.getText(), bookSupplierField.getText(), bookNoField.getText(), bookbillDateField.getValue().toString());
                 DialogBox.DialogBox.showDialog(DialogBox.DialogBox.record_added);
+                for(int i=0;i<=compulsoryText.size();i++){
+                    compulsoryText.get(i).setText("");
+                }
+                
             } else {
 
                 DialogBox.DialogBox.showDialog(DialogBox.DialogBox.duplicate_Entry);
@@ -105,7 +109,7 @@ public class AddBookController implements Initializable {
             stagetemp.close();
 
             Stage stage = new Stage();
-            AnchorPane root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/Dashboard/Dashboard.fxml"));
+            AnchorPane root = FXMLLoader.load(getClass().getResource("/Dashboard/Dashboard.fxml"));
             Scene scene = new Scene(root, 1200, 600);
             // stage.initStyle(StageStyle.UTILITY);
             stage.setResizable(false);

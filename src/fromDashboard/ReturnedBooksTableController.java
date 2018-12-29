@@ -56,7 +56,7 @@ public class ReturnedBooksTableController implements Initializable {
     // do what you have to do
             stagetemp.close();
           Stage stage=new Stage();
-         AnchorPane root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/Dashboard/Dashboard.fxml"));
+         AnchorPane root = FXMLLoader.load(getClass().getResource("/Dashboard/Dashboard.fxml"));
             Scene scene = new Scene(root,1200,600);
             // stage.initStyle(StageStyle.UTILITY);
              stage.setResizable(false);

@@ -2,12 +2,17 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="597.0" prefWidth="712.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DeleteBookEntry.DeleteBookEntryController">
+<AnchorPane id="AnchorPane" prefHeight="610.0" prefWidth="712.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DeleteBookEntry.DeleteBookEntryController">
    <children>
       <AnchorPane prefHeight="110.0" prefWidth="1161.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -19,17 +24,36 @@
                   <DropShadow color="WHITE" radius="13.035" width="33.14" />
                </effect>
             </JFXButton>
+            <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="598.0" layoutY="69.0" size="80" wrappingWidth="60.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0" />
+            <Text fill="WHITE" layoutX="515.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="67.13671875" AnchorPane.rightAnchor="129.86328125" AnchorPane.topAnchor="74.41796875">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <JFXButton buttonType="RAISED" graphicTextGap="15.0" layoutX="828.0" layoutY="69.0" prefHeight="39.0" prefWidth="122.0" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="69.0">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Dashboard/logouticon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="27.0" layoutX="583.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="5.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="80.0" />
          </children>
       </AnchorPane>
-      <TableView fx:id="bookTableView" editable="true" fixedCellSize="0.0" focusTraversable="false" layoutX="44.0" layoutY="193.0" pickOnBounds="false" prefHeight="546.0" prefWidth="635.0" style="-fx-background-color: #ffe0b2;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="200.0">
+      <TableView fx:id="bookTableView" editable="true" fixedCellSize="0.0" focusTraversable="false" layoutX="50.0" layoutY="186.0" pickOnBounds="false" prefHeight="546.0" prefWidth="635.0" style="-fx-background-color: #ffe0b2;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="200.0">
          <effect>
             <DropShadow />
          </effect>
       </TableView>
-      <JFXButton fx:id="allrec" layoutX="341.0" layoutY="554.0" onAction="#showallrecs" prefHeight="39.0" prefWidth="135.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
-      <JFXTextField fx:id="searchfield" layoutX="207.0" layoutY="148.0" prefHeight="29.0" prefWidth="210.0" promptText="Enter Id to Search" />
-      <JFXButton layoutX="50.0" layoutY="143.0" onAction="#searchAction" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
-      <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="464.0" layoutY="143.0" onAction="#deleteBookAction" prefHeight="39.0" prefWidth="196.0" style="-fx-background-color: #ff996a #ff996a; -fx-background-radius: 20;" text="Delete this Book" textFill="WHITE">
+      <JFXButton fx:id="allrec" layoutX="58.0" layoutY="547.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="135.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="58.0" />
+      <JFXTextField fx:id="searchfield" layoutX="207.0" layoutY="134.0" prefHeight="39.0" prefWidth="210.0" promptText="Enter Id to Search" />
+      <JFXButton layoutX="50.0" layoutY="134.0" onAction="#searchAction" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
+      <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="463.0" layoutY="134.0" onAction="#deleteBookAction" prefHeight="39.0" prefWidth="157.0" style="-fx-background-color: #ff996a #ff996a; -fx-background-radius: 20;" text="Delete this Book" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></JFXButton>

@@ -2,13 +2,17 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="fromDashboard.ReturnedBooksTableController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fromDashboard.ReturnedBooksTableController">
    <children>
       <TableView fx:id="bookTableView" editable="true" fixedCellSize="0.0" focusTraversable="false" layoutX="60.0" layoutY="210.0" pickOnBounds="false" prefHeight="546.0" prefWidth="635.0" style="-fx-background-color: #ffe0b2;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="200.0">
          <effect>
@@ -22,10 +26,29 @@
                   <Font size="18.0" />
                </font>
             </JFXButton>
+            <Text fill="WHITE" layoutX="511.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="67.13671875" AnchorPane.rightAnchor="121.86328125" AnchorPane.topAnchor="80.41796875">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
       <JFXButton fx:id="allrec" layoutX="70.0" layoutY="557.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
       <JFXTextField fx:id="searchfield" layoutX="255.0" layoutY="158.0" promptText="Enter Id to Search" />
       <JFXButton layoutX="447.0" layoutY="152.0" onAction="#searchAction" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
+      <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="526.0" layoutY="101.0" size="80" wrappingWidth="60.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0" />
+      <JFXButton alignment="CENTER" buttonType="RAISED" focusTraversable="false" graphicTextGap="15.0" layoutX="542.0" layoutY="91.0" prefHeight="20.0" prefWidth="120.0" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Dashboard/logouticon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="27.0" layoutX="578.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" width="5.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="79.0" />
    </children>
 </AnchorPane>
