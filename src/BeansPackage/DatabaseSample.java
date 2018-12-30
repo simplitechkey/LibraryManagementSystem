@@ -12,11 +12,11 @@ package BeansPackage;
 
 
 public class DatabaseSample {
-    int bookId=0;
+    String bookId="";
     String bookSubject="";
     String bookBranch="";
     String bookTitle="";
-    int accountNumber=0;
+    String accountNumber="";
     String bookAuthor="";
     String bookPublication="";
     String bookPrice="";
@@ -35,7 +35,7 @@ public class DatabaseSample {
        
     }*/
     
- public DatabaseSample(int bookId, String bookSubject, String bookBranch, String bookTitle, int accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate) {
+ public DatabaseSample(String bookId, String bookSubject, String bookBranch, String bookTitle, String accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate) {
         
         this.bookId = bookId;
         this.bookSubject = bookSubject;
@@ -52,11 +52,11 @@ public class DatabaseSample {
         this.billDate = billDate;
     }
 
-    public int getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(String bookId) {
         this.bookId = bookId;
     }
 
@@ -84,11 +84,11 @@ public class DatabaseSample {
         this.bookTitle = bookTitle;
     }
 
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 

@@ -17,11 +17,11 @@ package BeansPackage;
 
 
 public class IssuedBookObject {
-    int bookId=0;
+    String bookId="";
     String bookSubject="";
     String bookBranch="";
     String bookTitle="";
-    int accountNumber=0;
+    String accountNumber="";
     String bookAuthor="";
     String bookPublication="";
     String bookPrice="";
@@ -32,7 +32,7 @@ public class IssuedBookObject {
     String billDate="";
 
 
-  /*  public DatabaseSample(int bookId, String bookSubject, String bookBranch) {
+  /*  public DatabaseSample(String bookId, String bookSubject, String bookBranch) {
         
         this.bookId = bookId;
         this.bookSubject = bookSubject;
@@ -40,7 +40,7 @@ public class IssuedBookObject {
        
     }*/
     
- public IssuedBookObject(int bookId, String bookSubject, String bookBranch, String bookTitle, int accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate) {
+ public IssuedBookObject(String bookId, String bookSubject, String bookBranch, String bookTitle, String accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate) {
         
         this.bookId = bookId;
         this.bookSubject = bookSubject;
@@ -57,11 +57,11 @@ public class IssuedBookObject {
         this.billDate = billDate;
     }
 
-    public int getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(String bookId) {
         this.bookId = bookId;
     }
 
@@ -89,11 +89,11 @@ public class IssuedBookObject {
         this.bookTitle = bookTitle;
     }
 
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 

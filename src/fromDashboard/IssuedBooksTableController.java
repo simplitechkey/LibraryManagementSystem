@@ -79,7 +79,7 @@ public class IssuedBooksTableController implements Initializable {
             bookTableView.setItems(DBLibraryDAO.getAllIssuedBooksRecords());
               bookTableView.refresh();
              }else{
-            data=DBLibraryDAO.searchIssuedBookBookById(Integer.parseInt(searchfield.getText()));
+            data=DBLibraryDAO.searchIssuedBookBookById(searchfield.getText());
             bookTableView.setItems(data);
             bookTableView.refresh();
              } 

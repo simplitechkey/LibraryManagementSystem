@@ -84,7 +84,7 @@ public class ReturnedBooksTableController implements Initializable {
             bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
               bookTableView.refresh();
              }else{
-            data=DBLibraryDAO.searchReturnedBookById(Integer.parseInt(searchfield.getText()));
+            data=DBLibraryDAO.searchReturnedBookById(searchfield.getText().trim());
             bookTableView.setItems(data);
             bookTableView.refresh();
              } 

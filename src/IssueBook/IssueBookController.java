@@ -62,7 +62,7 @@ public class IssueBookController implements Initializable {
            issueBtn.setVisible(false);
             bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
         }else{
-            DBLibraryDAO.issueBookfromTotalBooks(Integer.parseInt(searchfield.getText()));
+            DBLibraryDAO.issueBookfromTotalBooks(searchfield.getText());
             DialogBox.showDialog(DialogBox.dialog_issue_successful);
              bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
              bookTableView.refresh();
@@ -75,7 +75,7 @@ public class IssueBookController implements Initializable {
     @FXML
     void searchAction(ActionEvent event) {
          try {
-             data=DBLibraryDAO.searchReturnedBookById(Integer.parseInt(searchfield.getText()));
+             data=DBLibraryDAO.searchReturnedBookById(searchfield.getText());
         if((searchfield.getText().trim().isEmpty() || (searchfield.getText() == null))) {
           DialogBox.showDialog(DialogBox.dialog_text_null);
            issueBtn.setVisible(false);

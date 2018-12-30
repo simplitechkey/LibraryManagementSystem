@@ -65,7 +65,7 @@ public class FXMLDocumentController implements Initializable {
                      loginfield.setText("");
                      passwordfield.setText("");
              }else{
-            if(uname.equals("admin") && pass.equals("admin")){
+            if(DBLibraryDAO.validateUser(uname, pass)){
              Stage stage2 = (Stage) login.getScene().getWindow();
              stage2.close();
             stage.show();
@@ -99,7 +99,7 @@ public class FXMLDocumentController implements Initializable {
              stage.setTitle("Add New Book");
             stage.setScene(scene);
             
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
  }    

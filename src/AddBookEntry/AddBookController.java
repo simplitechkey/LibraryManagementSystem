@@ -10,21 +10,36 @@ import DatabaseHelper.DBUtil;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.IntegerValidator;
+import java.io.IOException;
+//import java.awt.Insets;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Formatter;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 /**
  * FXML Controller class
@@ -73,32 +88,29 @@ public class AddBookController implements Initializable {
     private JFXDatePicker bookbillDateField;
 
     ArrayList<JFXTextField> compulsoryText;
-    
-    IntegerValidator intvalidator=new IntegerValidator("not a proper integer");
+
+    IntegerValidator intvalidator = new IntegerValidator("not a proper integer");
+
     @FXML
     void addRecord(ActionEvent event) {
         if (noFieldEmpty()) {
-           if(!bookIdField.validate())
-           {
-               bookIdField.validate();
-                       }else{
+
             if (!notDuplicateEntry()) {
-                DBLibraryDAO.insertBook(Integer.parseInt(bookIdField.getText()), bookSubjectField.getText(), bookBranchField.getText(), bookTitleField.getText(), Integer.parseInt(bookAccNoField.getText()), bookAuthorField.getText(), bookPublicationField.getText(), bookPriceField.getText(), bookYearField.getText(), bookEditionField.getText(), bookSupplierField.getText(), bookNoField.getText(), bookbillDateField.getValue().toString());
+                DBLibraryDAO.insertBook(bookIdField.getText(), bookSubjectField.getText(), bookBranchField.getText(), bookTitleField.getText(), bookAccNoField.getText(), bookAuthorField.getText(), bookPublicationField.getText(), bookPriceField.getText(), bookYearField.getText(), bookEditionField.getText(), bookSupplierField.getText(), bookNoField.getText(), bookbillDateField.getValue().toString());
                 DialogBox.DialogBox.showDialog(DialogBox.DialogBox.record_added);
-                for(int i=0;i<=compulsoryText.size();i++){
+                for (int i = 0; i <= compulsoryText.size(); i++) {
                     compulsoryText.get(i).setText("");
                 }
-                
+
             } else {
 
                 DialogBox.DialogBox.showDialog(DialogBox.DialogBox.duplicate_Entry);
+
             }
-        } 
-        }else {
+        } else {
             DialogBox.DialogBox.showDialog(DialogBox.DialogBox.field_empty);
+
         }
-    
-        
     }
 
     @FXML
@@ -117,7 +129,7 @@ public class AddBookController implements Initializable {
             stage.setScene(scene);
             stage.show();
 
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             Logger.getLogger(AddBookController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -129,35 +141,28 @@ public class AddBookController implements Initializable {
     }
 
     private boolean noFieldEmpty() {
-        boolean nofieldempty = false;
         for (int i = 0; i < compulsoryText.size(); i++) {
-     if(compulsoryText.get(i).getText().trim().isEmpty() || compulsoryText.get(i).getText().equals("") || bookbillDateField.getEditor().getText().isEmpty()){
-            return false;
+            return !(compulsoryText.get(i).getText().trim().isEmpty() || compulsoryText.get(i).getText().equals("") || bookbillDateField.getEditor().getText().isEmpty());
 
-        }else{
-      return true;
-     }
-   
-    }
+        }
         return false;
     }
 
     private boolean notDuplicateEntry() {
         boolean duplicateEntry = false;
-       
-            try {
-               
-                StringBuilder sbuf = new StringBuilder();
-                Formatter formatter = new Formatter(sbuf);
-                formatter.format("SELECT  bookId FROM totalNumberofBooks WHERE bookId = %d", Integer.parseInt(bookIdField.getText()));
 
-                ResultSet rs = DBUtil.dbExecute(sbuf.toString());
-                duplicateEntry = rs.next();
+        try {
 
-            } catch (Exception ex) {
-                Logger.getLogger(AddBookController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
+            StringBuilder sbuf = new StringBuilder();
+            Formatter formatter = new Formatter(sbuf);
+            formatter.format("SELECT  bookId FROM totalNumberofBooks WHERE bookId = %s ", bookIdField.getText().trim());
+
+            ResultSet rs = DBUtil.dbExecute(sbuf.toString());
+            duplicateEntry = rs.next();
+
+        } catch (Exception ex) {
+            Logger.getLogger(AddBookController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         return duplicateEntry;
     }

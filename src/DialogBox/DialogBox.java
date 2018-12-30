@@ -33,6 +33,10 @@ public class DialogBox {
     public static final int no_values_found = 7;
     public static final int field_empty = 8;
     public static final int duplicate_Entry = 9;
+    public static final int user_not_exists=10;
+    public static final int pattern_not_matched=11;
+    public static final int pass_not_matched=12;
+    public static final int change_pass_success=13;
 
     public static void showDialog(int i) {
         switch (i) {
@@ -95,6 +99,36 @@ public class DialogBox {
                 duplicateAlert.setContentText("Duplicate Entry Found. Book ID already present in databse");
                 duplicateAlert.showAndWait();
                 break;
+             
+            case user_not_exists:
+                Alert existAlert = new Alert(Alert.AlertType.ERROR);
+                existAlert.setHeaderText("Wrong Username");
+                existAlert.setContentText("Username Does not Exist..!");
+                existAlert.showAndWait();
+                break;
+                
+            case pattern_not_matched:
+                 Alert passAlert = new Alert(Alert.AlertType.ERROR);
+                passAlert.setHeaderText("Password not Strong Enough");
+                passAlert.setContentText("1)Password should contain atleast 5 characters \n 2)Password should contain atleast 1 uppecase letter \n 3)Password should contain atleast 1 lowercase character \n ");
+                passAlert.showAndWait();
+                break;
+                
+            case pass_not_matched:
+                Alert notMatchAlert = new Alert(Alert.AlertType.ERROR);
+                notMatchAlert.setHeaderText("Confirm Password");
+                notMatchAlert.setContentText("New Password and Confirm Password not same..!");
+                notMatchAlert.showAndWait();
+                break;
+                
+             case change_pass_success:
+                Alert changeAlert = new Alert(Alert.AlertType.INFORMATION);
+                changeAlert.setHeaderText("Password Changed");
+                changeAlert.setContentText("New Password changed Successfully");
+                changeAlert.showAndWait();
+                break;   
+                
+                
 
             default:
                 break;

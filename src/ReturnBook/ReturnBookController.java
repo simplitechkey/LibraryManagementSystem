@@ -66,7 +66,7 @@ public class ReturnBookController implements Initializable {
            returnBtn.setVisible(false);
             bookTableView.setItems(DBLibraryDAO.getAllIssuedBooksRecords());
         }else{
-            DBLibraryDAO.returnBookfromIssuedBooks(Integer.parseInt(searchfield.getText()));
+            DBLibraryDAO.returnBookfromIssuedBooks(searchfield.getText().trim());
             DialogBox.showDialog(DialogBox.dialog_return_successful);
              bookTableView.setItems(DBLibraryDAO.getAllIssuedBooksRecords());
              bookTableView.refresh();
@@ -78,7 +78,7 @@ public class ReturnBookController implements Initializable {
     @FXML
     void searchAction(ActionEvent event) {
         try {
-             data=DBLibraryDAO.searchIssuedBookBookById(Integer.parseInt(searchfield.getText()));
+             data=DBLibraryDAO.searchIssuedBookBookById(searchfield.getText().trim());
         if((searchfield.getText().trim().isEmpty() || (searchfield.getText() == null))) {
           DialogBox.showDialog(DialogBox.dialog_text_null);
            returnBtn.setVisible(false);

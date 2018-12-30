@@ -77,7 +77,7 @@ public class DeleteBookEntryController implements Initializable {
             }else{
            
             deleteBtn.setVisible(true);
-            bookTableView.setItems(DBLibraryDAO.searchBookById(Integer.parseInt(searchfield.getText())));
+            bookTableView.setItems(DBLibraryDAO.searchBookById(searchfield.getText().trim()));
         }
         }
             
@@ -126,9 +126,9 @@ public class DeleteBookEntryController implements Initializable {
             bookTableView.setItems(DBLibraryDAO.getAllRecords());
               }
               else{
-        DBLibraryDAO.deleteBookbyID(Integer.parseInt(searchfield.getText()));
-        DBLibraryDAO.removeEntryfromIssuedIfAvailable(Integer.parseInt(searchfield.getText()));
-        DBLibraryDAO.removeEntryfromReturnedIfAvailable(Integer.parseInt(searchfield.getText()));
+        DBLibraryDAO.deleteBookbyID(searchfield.getText().trim());
+        DBLibraryDAO.removeEntryfromIssuedIfAvailable(searchfield.getText().trim());
+        DBLibraryDAO.removeEntryfromReturnedIfAvailable(searchfield.getText().trim());
         DialogBox.showDialog(DialogBox.delete_successful);
          bookTableView.setItems(DBLibraryDAO.getAllRecords());
           bookTableView.refresh();

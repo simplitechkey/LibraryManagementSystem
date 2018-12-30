@@ -74,7 +74,7 @@ public class TotalNumberofBooksController implements Initializable {
             bookTableView.setItems(DBLibraryDAO.getAllRecords());
               bookTableView.refresh();
         }else{
-            data=DBLibraryDAO.searchBookById(Integer.parseInt(searchfield.getText()));
+            data=DBLibraryDAO.searchBookById(searchfield.getText());
             bookTableView.setItems(data);
               bookTableView.refresh();
                }
@@ -125,7 +125,7 @@ public class TotalNumberofBooksController implements Initializable {
     @FXML
     void deleteAction(ActionEvent event) {
         try{
-        DBLibraryDAO.deleteBookbyID(Integer.parseInt(searchfield.getText()));
+        DBLibraryDAO.deleteBookbyID(searchfield.getText());
          bookTableView.setItems(DBLibraryDAO.getAllRecords());
           bookTableView.refresh();
         }catch(Exception e){
@@ -136,7 +136,7 @@ public class TotalNumberofBooksController implements Initializable {
     @FXML
     void updateAction(ActionEvent event) {
             try{
-                DBLibraryDAO.updateBook(Integer.parseInt(searchfield.getText()), subjectField.getText());
+                DBLibraryDAO.updateBook(searchfield.getText(), subjectField.getText());
                     bookTableView.setItems(DBLibraryDAO.getAllRecords());
                      bookTableView.refresh();
             }catch(Exception e){

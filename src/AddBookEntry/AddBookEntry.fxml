@@ -182,7 +182,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </JFXTextField>
-            <JFXDatePicker fx:id="bookbillDateField" defaultColor="#ff996a" promptText="Select Book Billing Date">
+            <JFXDatePicker fx:id="bookbillDateField" defaultColor="#ff996a" prefWidth="190.0" promptText="Select Book Billing Date">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
