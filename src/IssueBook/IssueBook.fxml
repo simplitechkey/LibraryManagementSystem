@@ -17,7 +17,7 @@
       <AnchorPane layoutX="50.0" layoutY="14.0" prefHeight="115.0" prefWidth="712.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="601.0" layoutY="100.0" size="80" wrappingWidth="60.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0" />
-            <Text fill="WHITE" layoutX="524.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="67.13671875" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="85.0">
+            <Text fx:id="userText" fill="WHITE" layoutX="524.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="67.13671875" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="85.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

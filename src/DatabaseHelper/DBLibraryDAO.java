@@ -21,7 +21,8 @@ import javafx.collections.ObservableList;
  * @author omkarkamate
  */
 public class DBLibraryDAO {
-
+    
+    public static String userName;
     public static void insertBook(String bookId, String bookSubject, String bookBranch, String bookTitle, String accNo, String bookAuthor, String bookPublication, String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate) //public static void insertBook(String bookId, String bookSubject, String bookBranch)
     {
         String sql = "insert into totalNumberofBooks ( bookId, bookSubject,bookBranch , bookTitle, bookAccNo, bookAuthor, bookPublication, bookPrice,  bookYear,  bookEditionYear,  bookSupplier,  billNo,  billDate) values ('" + bookId + "','" + bookSubject + "','" + bookBranch + "','" + bookTitle + "','" + accNo + "','" + bookAuthor + "','" + bookPublication + "','" + bookPrice + "','" + bookYear + "','" + bookEditionYear + "','" + bookSupplier + "','" + billNo + "','" + billDate + "');";
@@ -264,9 +265,10 @@ public class DBLibraryDAO {
     }
 
     public static boolean validateUser(String userName, String password) {
-
+        
+       
         String queryString = "SELECT username, password FROM userCredentials where username = '"+userName+"' and password = "+"'"+password+"'";
-    
+       
             try {
                 ResultSet rs = DBUtil.dbExecute(queryString);
                 if (rs.next()) {

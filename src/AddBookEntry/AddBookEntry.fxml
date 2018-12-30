@@ -24,7 +24,7 @@
                </font>
             </JFXButton>
             <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="516.0" layoutY="91.0" size="80" wrappingWidth="60.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0" />
-            <Text fill="WHITE" layoutX="761.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="67.13671875" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="85.0">
+            <Text fx:id="userText" fill="WHITE" layoutX="761.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="67.13671875" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="85.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

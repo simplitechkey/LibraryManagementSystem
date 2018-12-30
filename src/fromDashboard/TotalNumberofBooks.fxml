@@ -29,7 +29,7 @@
       <JFXButton fx:id="allrec" layoutX="59.0" layoutY="562.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
       <JFXTextField fx:id="searchfield" layoutX="163.0" layoutY="149.0" promptText="Enter Id to Search" />
       <JFXButton layoutX="372.0" layoutY="143.0" onAction="#searchAction" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
-      <Text fill="WHITE" layoutX="521.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="67.13671875" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="80.0">
+      <Text fx:id="userText" fill="WHITE" layoutX="521.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="67.13671875" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="80.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

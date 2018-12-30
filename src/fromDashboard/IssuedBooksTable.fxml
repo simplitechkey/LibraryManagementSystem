@@ -38,7 +38,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <Text fill="WHITE" layoutX="746.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="67.13671875" AnchorPane.rightAnchor="129.86328125" AnchorPane.topAnchor="85.41796875">
+            <Text fx:id="userText" fill="WHITE" layoutX="746.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="67.13671875" AnchorPane.rightAnchor="129.86328125" AnchorPane.topAnchor="85.41796875">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

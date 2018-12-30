@@ -26,6 +26,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -44,6 +45,8 @@ public class IssueBookController implements Initializable {
       @FXML
     private TableView<ReturnedBookObject> bookTableView;
 
+     @FXML
+    private Text userText;
     @FXML
     private JFXButton allrec;
     
@@ -169,7 +172,7 @@ public class IssueBookController implements Initializable {
               TableColumn<ReturnedBookObject,String>bookbillDate=new TableColumn("billDate");
               bookbillDate.setCellValueFactory(new PropertyValueFactory<>("billDate"));
               
-              
+               userText.setText(DBLibraryDAO.userName);
               issueBtn.setVisible(false);
               bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
               bookTableView.getColumns().addAll(bookId,bookSubject,bookBranch,bookTitle,bookAccountNumber,bookAuthor,bookPublication,bookPrice,bookYear,bookEditionYear,bookSupplier,billNumber,bookbillDate);

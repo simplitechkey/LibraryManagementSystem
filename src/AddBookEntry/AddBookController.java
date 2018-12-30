@@ -38,6 +38,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
@@ -50,6 +51,9 @@ public class AddBookController implements Initializable {
 
     @FXML
     private JFXTextField bookIdField;
+    
+      @FXML
+    private Text userText;
 
     @FXML
     private JFXTextField bookSubjectField;
@@ -89,7 +93,7 @@ public class AddBookController implements Initializable {
 
     ArrayList<JFXTextField> compulsoryText;
 
-    IntegerValidator intvalidator = new IntegerValidator("not a proper integer");
+    
 
     @FXML
     void addRecord(ActionEvent event) {
@@ -137,7 +141,8 @@ public class AddBookController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         compulsoryText = new ArrayList<>(Arrays.asList(bookIdField, bookAccNoField, bookAuthorField, bookBranchField, bookEditionField, bookNoField, bookPriceField, bookPublicationField, bookSubjectField, bookSupplierField, bookTitleField, bookYearField));
-        bookIdField.getValidators().add(intvalidator);
+      userText.setText(DBLibraryDAO.userName);
+        
     }
 
     private boolean noFieldEmpty() {

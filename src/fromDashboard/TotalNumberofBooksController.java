@@ -31,6 +31,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -49,11 +50,9 @@ public class TotalNumberofBooksController implements Initializable {
     @FXML
    TableView<DatabaseSample> bookTableView;
      
-   
-   
-
-    @FXML
-    private JFXTextField branchField;
+  
+     @FXML
+    private Text userText;
 
     @FXML
     private JFXTextField subjectField;
@@ -184,7 +183,7 @@ public class TotalNumberofBooksController implements Initializable {
                   TableColumn<DatabaseSample,String>bookbillDate=new TableColumn("billDate");          
                  bookbillDate.setCellValueFactory(new PropertyValueFactory<>("billDate"));
                  
-                 
+                  userText.setText(DBLibraryDAO.userName);
            
             bookTableView.setItems(DBLibraryDAO.getAllRecords());
           // loadDatabaseData();

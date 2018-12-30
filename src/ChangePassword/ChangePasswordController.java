@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -36,6 +37,7 @@ public class ChangePasswordController implements Initializable {
 
     String newpassword = "";
 
+     
     @FXML
     private JFXTextField usernameField;
 

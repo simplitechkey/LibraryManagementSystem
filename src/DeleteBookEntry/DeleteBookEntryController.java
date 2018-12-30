@@ -31,6 +31,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -55,13 +56,12 @@ public class DeleteBookEntryController implements Initializable {
    @FXML
     private JFXButton deleteBtn;
 
-    
+     @FXML
+    private Text userText;
        
     @FXML
     private JFXTextField searchfield;
-    
- 
-    
+        
     @FXML
     void searchAction(ActionEvent event) {
       try {
@@ -182,7 +182,7 @@ public class DeleteBookEntryController implements Initializable {
                  bookbillDate.setCellValueFactory(new PropertyValueFactory<>("billDate"));
                  
                  
-           
+            userText.setText(DBLibraryDAO.userName);
             bookTableView.setItems(DBLibraryDAO.getAllRecords());
           deleteBtn.setVisible(false);
             bookTableView.getColumns().addAll(bookId,bookSubject,bookBranch,bookTitle,bookAccountNumber,bookAuthor,bookPublication,bookPrice,bookYear,bookEditionYear,bookSupplier,billNumber,bookbillDate);

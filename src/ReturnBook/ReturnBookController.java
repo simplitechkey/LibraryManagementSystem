@@ -33,6 +33,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -43,6 +44,10 @@ import javafx.stage.Stage;
 public class ReturnBookController implements Initializable {
 
    ObservableList<IssuedBookObject> data=FXCollections.observableArrayList();
+   
+    @FXML
+    private Text userText;
+    
       @FXML
     private TableView<IssuedBookObject> bookTableView;
 
@@ -173,7 +178,7 @@ public class ReturnBookController implements Initializable {
               bookbillDate.setCellValueFactory(new PropertyValueFactory<>("billDate"));
               
               
-              
+               userText.setText(DBLibraryDAO.userName);
               bookTableView.setItems(DBLibraryDAO.getAllIssuedBooksRecords());
               bookTableView.getColumns().addAll(bookId,bookSubject,bookBranch,bookTitle,bookAccountNumber,bookAuthor,bookPublication,bookPrice,bookYear,bookEditionYear,bookSupplier,billNumber,bookbillDate);
               returnBtn.setVisible(false);

@@ -30,6 +30,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -45,6 +46,9 @@ public class IssuedBooksTableController implements Initializable {
      ObservableList<IssuedBookObject> data=FXCollections.observableArrayList();
     @FXML
     private TableView<IssuedBookObject> bookTableView;
+    
+     @FXML
+    private Text userText;
 
     @FXML
     private JFXButton allrec;
@@ -135,7 +139,7 @@ public class IssuedBooksTableController implements Initializable {
               bookbillDate.setCellValueFactory(new PropertyValueFactory<>("billDate"));
               
               
-              
+               userText.setText(DBLibraryDAO.userName);
               bookTableView.setItems(DBLibraryDAO.getAllIssuedBooksRecords());
               // loadDatabaseData();
               bookTableView.getColumns().addAll(bookId,bookSubject,bookBranch,bookTitle,bookAccountNumber,bookAuthor,bookPublication,bookPrice,bookYear,bookEditionYear,bookSupplier,billNumber,bookbillDate);

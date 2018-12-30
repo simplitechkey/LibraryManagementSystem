@@ -71,7 +71,8 @@ public class LibraryDashBoardController implements Initializable {
     private Label labelTotalNumberOfBookslabelTotalNumberOfBooksIssued;
 
     @FXML
-    private AnchorPane labelTotalNumberOfBookslabelTotalNumberOfBooksRemaining;
+    private Text userText;
+    
     @FXML
     private JFXTextField labelnumberofbooksIssued;
 
@@ -303,7 +304,8 @@ public class LibraryDashBoardController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
-            System.out.println("init of lib dash");
+            
+            
             totalBooks = String.valueOf(DBLibraryDAO.getAllRecords().size());
             totalIssuedBooks = String.valueOf(String.valueOf(DBLibraryDAO.getAllIssuedBooksRecords().size()));
             remainingBooks = String.valueOf((DBLibraryDAO.getAllRecords().size() - DBLibraryDAO.getAllIssuedBooksRecords().size()));
@@ -311,7 +313,7 @@ public class LibraryDashBoardController implements Initializable {
             labelnumberofbooksIssued.setStyle("-fx-text-fill: white;");
             booksRemainingLabel.setStyle("-fx-text-fill: white;");
             refreshDashBoard();
-
+          
             /*  Timeline timeline = new Timeline(
                               new KeyFrame(Duration.seconds(0.5), (ActionEvent actionEvent) -> {
                                   // Call refreshDashBoard method for every 2 sec.
@@ -327,7 +329,7 @@ public class LibraryDashBoardController implements Initializable {
             DBLibraryDAO.getAllRecords();
             DBLibraryDAO.getAllIssuedBooksRecords();
             DBLibraryDAO.getAllReturnedBooksRecords();
-
+             userText.setText("Welcome "+DBLibraryDAO.userName+"!");
         } catch (Exception ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }

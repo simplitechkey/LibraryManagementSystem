@@ -30,14 +30,17 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 /**
  *
  * @author Omskamate
  */
 public class FXMLDocumentController implements Initializable {
-   Stage stage;
+  
    RequiredFieldValidator rv=new RequiredFieldValidator();
+   
+   
       
      @FXML
     private Label label;
@@ -51,8 +54,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private JFXButton login;
 
-    @FXML
-    private JFXButton login2;
+  
    
     
     @FXML
@@ -66,9 +68,20 @@ public class FXMLDocumentController implements Initializable {
                      passwordfield.setText("");
              }else{
             if(DBLibraryDAO.validateUser(uname, pass)){
+                
+                 DBLibraryDAO.userName=uname;
              Stage stage2 = (Stage) login.getScene().getWindow();
              stage2.close();
+             
+              AnchorPane root = FXMLLoader.load(getClass().getResource("/Dashboard/Dashboard.fxml"));
+            Scene scene = new Scene(root,1200,600);
+            // stage.initStyle(StageStyle.UTILITY);
+            Stage stage=new Stage();
+             stage.setResizable(false);
+             stage.setTitle("Add New Book");
+            stage.setScene(scene);
             stage.show();
+           
             }else{
                                
                 Alert alert = new Alert(AlertType.WARNING);
@@ -91,15 +104,12 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-              stage=new Stage();
-            AnchorPane root = FXMLLoader.load(getClass().getResource("/Dashboard/Dashboard.fxml"));
-            Scene scene = new Scene(root,1200,600);
-            // stage.initStyle(StageStyle.UTILITY);
-             stage.setResizable(false);
-             stage.setTitle("Add New Book");
-            stage.setScene(scene);
+              loginfield.requestFocus();
             
-        } catch (IOException ex) {
+           
+            
+            
+        } catch (Exception ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
  }    
