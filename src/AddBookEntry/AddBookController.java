@@ -51,8 +51,8 @@ public class AddBookController implements Initializable {
 
     @FXML
     private JFXTextField bookIdField;
-    
-      @FXML
+
+    @FXML
     private Text userText;
 
     @FXML
@@ -93,23 +93,22 @@ public class AddBookController implements Initializable {
 
     ArrayList<JFXTextField> compulsoryText;
 
-    
-
     @FXML
     void addRecord(ActionEvent event) {
         if (noFieldEmpty()) {
-
+            
             if (!notDuplicateEntry()) {
                 DBLibraryDAO.insertBook(bookIdField.getText(), bookSubjectField.getText(), bookBranchField.getText(), bookTitleField.getText(), bookAccNoField.getText(), bookAuthorField.getText(), bookPublicationField.getText(), bookPriceField.getText(), bookYearField.getText(), bookEditionField.getText(), bookSupplierField.getText(), bookNoField.getText(), bookbillDateField.getValue().toString());
                 DialogBox.DialogBox.showDialog(DialogBox.DialogBox.record_added);
-                for (int i = 0; i <= compulsoryText.size(); i++) {
+                
+                for (int i = 0; i < compulsoryText.size(); i++) {
+              
                     compulsoryText.get(i).setText("");
                 }
-
             } else {
-
+                
                 DialogBox.DialogBox.showDialog(DialogBox.DialogBox.duplicate_Entry);
-
+                
             }
         } else {
             DialogBox.DialogBox.showDialog(DialogBox.DialogBox.field_empty);
@@ -141,8 +140,8 @@ public class AddBookController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         compulsoryText = new ArrayList<>(Arrays.asList(bookIdField, bookAccNoField, bookAuthorField, bookBranchField, bookEditionField, bookNoField, bookPriceField, bookPublicationField, bookSubjectField, bookSupplierField, bookTitleField, bookYearField));
-      userText.setText(DBLibraryDAO.userName);
-        
+        userText.setText(DBLibraryDAO.userName);
+
     }
 
     private boolean noFieldEmpty() {
@@ -156,13 +155,10 @@ public class AddBookController implements Initializable {
     private boolean notDuplicateEntry() {
         boolean duplicateEntry = false;
 
-        try {
-
-            StringBuilder sbuf = new StringBuilder();
-            Formatter formatter = new Formatter(sbuf);
-            formatter.format("SELECT  bookId FROM totalNumberofBooks WHERE bookId = %s ", bookIdField.getText().trim());
-
-            ResultSet rs = DBUtil.dbExecute(sbuf.toString());
+        try {       
+            
+            String sql="SELECT  bookId FROM totalNumberofBooks WHERE bookId = '"+bookIdField.getText()+"'";
+            ResultSet rs = DBUtil.dbExecute(sql);
             duplicateEntry = rs.next();
 
         } catch (Exception ex) {

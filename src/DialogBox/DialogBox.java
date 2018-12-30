@@ -72,8 +72,8 @@ public class DialogBox {
                 Alert alert6 = new Alert(Alert.AlertType.INFORMATION);
                 alert6.setHeaderText("Book Record Added Successfully");
                 alert6.setContentText("Book Record Added Successfully");
-                
                alert6.showAndWait();
+               break;
 
             case user_pass_blank:
                 Alert alert2 = new Alert(Alert.AlertType.WARNING);
