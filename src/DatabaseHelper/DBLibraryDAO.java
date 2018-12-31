@@ -299,4 +299,17 @@ public class DBLibraryDAO {
              
     }
     
+    
+     public static void addNewUser(String username,String password){
+        
+        
+            try {
+                String sql="insert into userCredentials  (username , password ) values( '"+username+"' , '"+password+"');";
+                DBUtil.dbexcuteQuery(sql);
+            } catch (Exception ex) {
+                Logger.getLogger(DBLibraryDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             
+    }
+    
 }

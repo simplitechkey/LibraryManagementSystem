@@ -1,11 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddUser.AddUserController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="506.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="AddUser.AddUserController">
+   <children>
+      <VBox layoutX="81.0" layoutY="122.0">
+         <children>
+            <JFXTextField fx:id="usernameField" prefHeight="38.0" prefWidth="211.0" promptText="Enter username" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXPasswordField fx:id="currentPasswordField" focusColor="#ffffff00" prefHeight="40.0" prefWidth="230.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" unFocusColor="#ffffff00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </JFXPasswordField>
+            <JFXPasswordField fx:id="confirmPasswordField" focusColor="#ffffff00" prefHeight="40.0" prefWidth="230.0" promptText="Confirm New Password" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" unFocusColor="#ffffff00">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </JFXPasswordField>
+         </children>
+      </VBox>
+      <JFXButton buttonType="RAISED" layoutX="98.0" layoutY="382.0" onAction="#addUser" prefHeight="48.0" prefWidth="176.0" style="-fx-background-color: #393939;" text="Change Password" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </JFXButton>
+      <AnchorPane layoutX="-256.0" layoutY="210.0" prefHeight="110.0" prefWidth="600.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton layoutX="21.0" layoutY="30.0" onAction="#backAction" prefHeight="48.0" prefWidth="83.0" style="-fx-background-color: #ff996a;" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

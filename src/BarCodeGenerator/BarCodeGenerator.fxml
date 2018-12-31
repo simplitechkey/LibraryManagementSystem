@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="324.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainViewController">
+<AnchorPane id="AnchorPane" prefHeight="541.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainViewController">
    <children>
-      <Button fx:id="btn" layoutX="48.0" layoutY="101.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="156.0" text="Generate Bar Code" />
-      <TextField fx:id="id" layoutX="48.0" layoutY="45.0" prefHeight="26.0" prefWidth="156.0" />
-      <Label fx:id="code" layoutX="50.0" layoutY="168.0" prefHeight="69.0" prefWidth="250.0" />
-      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="33.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="code" layoutX="108.0" layoutY="119.0" prefHeight="69.0" prefWidth="250.0" />
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="390.0" layoutX="126.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXTextField fx:id="id" layoutX="190.0" layoutY="297.0" prefHeight="38.0" prefWidth="211.0" promptText="Enter username" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btn" buttonType="RAISED" layoutX="195.0" layoutY="393.0" prefHeight="48.0" prefWidth="200.0" style="-fx-background-color: #393939;" text="Generate Barcode" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </JFXButton>
+      <AnchorPane layoutY="78.0" prefHeight="110.0" prefWidth="600.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton layoutX="21.0" layoutY="30.0" prefHeight="48.0" prefWidth="83.0" style="-fx-background-color: #ff996a;" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
