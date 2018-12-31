@@ -7,6 +7,7 @@ package Dashboard;
 
 import DatabaseHelper.DBLibraryDAO;
 import DatabaseHelper.DBUtil;
+import bvjiniolibrarymanagement.FXMLDocumentController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
@@ -61,6 +62,8 @@ public class LibraryDashBoardController implements Initializable {
     String totalBooks = "";
     String totalIssuedBooks = "";
     String remainingBooks = "";
+    
+    
     @FXML
     private TextField labelTotalEntries;
 
@@ -132,6 +135,41 @@ public class LibraryDashBoardController implements Initializable {
             Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
             closestage.close();
             AnchorPane root = FXMLLoader.load(getClass().getResource("/AddBookEntry/AddBookEntry.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 1200, 600);
+            stage.setTitle("Add New Book");
+            //stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+     @FXML
+    void logOutAction(ActionEvent event) {
+       try {
+           
+           Stage closeStage = (Stage) userText.getScene().getWindow();
+           closeStage.close();
+           Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+           Stage stage=new Stage();
+           Scene scene = new Scene(root);
+           stage.initStyle(StageStyle.UNDECORATED);
+           stage.setScene(scene);
+           stage.show();
+       } catch (IOException ex) {
+           Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+
+    }
+    
+      @FXML
+    void generateBarcodeAction(ActionEvent event) {
+        try {
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
+            AnchorPane root = FXMLLoader.load(getClass().getResource("/BarCodeGenerator/BarCodeGenerator.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1200, 600);
             stage.setTitle("Add New Book");
