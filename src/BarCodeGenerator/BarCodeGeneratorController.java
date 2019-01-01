@@ -8,6 +8,7 @@ package BarCodeGenerator;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -32,10 +33,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
+
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileSystemView;
 import org.krysalis.barcode4j.impl.code128.Code128Bean;
 import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
 
@@ -47,13 +51,10 @@ import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
  */
 public class BarCodeGeneratorController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
-    
-    
+           
+    File barcodeFile;
+    @FXML
+    private JFXTextField barcodePath;
   @FXML
     private JFXButton btn;
     @FXML
@@ -83,21 +84,19 @@ public class BarCodeGeneratorController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+      /*  barcodeFile= new File(barcodePath.getText()+"\\"+"LibraryBarCode");
+        if(!barcodeFile.exists())
+        {
+            barcodeFile.mkdir();
+        }*/
         
-            btn.setOnAction(e->{
-                try {
-                    code();
-                } catch (IOException | DocumentException ex) {
-                    //Logger.getLogger(AddUserController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            });
+          
         
 
     }
 
     private void code() throws FileNotFoundException, IOException, BadElementException, DocumentException {
-        Code128Bean code128 = new Code128Bean();
+       Code128Bean code128 = new Code128Bean();
         code128.setHeight(15f);
         code128.setModuleWidth(0.3);
         code128.setQuietZone(10);
@@ -108,23 +107,17 @@ public class BarCodeGeneratorController implements Initializable {
         code128.generateBarcode(canvas, id.getText());
         canvas.finish();
 
-//write to png file
-        FileOutputStream fos = new FileOutputStream("barcode.png");
-        
-        fos.write(baos.toByteArray());
-        fos.flush();
-        fos.close();
-       // File file=new File("barcode.png");
-        Image image=new Image("/Dashboard/bvpnewlogo.png") ;
-        img=new ImageView(image);
-
-//write to pdf
-      /*  Image png = Image.getInstance(baos.toByteArray());
+      try (FileOutputStream fos = new FileOutputStream("barcode.png")) {
+          fos.write(baos.toByteArray());
+          fos.flush();
+      }
+      
+       Image png = Image.getInstance(baos.toByteArray());
         png.setAbsolutePosition(0, 705);
         png.scalePercent(25);
-        
-      
-
+              
+       javafx.scene.image.Image newimage=new javafx.scene.image.Image("file:barcode.png");
+       img.setImage(newimage);
         Document document;
         document = new Document();
         PdfPTable table = new PdfPTable(3);
@@ -145,15 +138,58 @@ public class BarCodeGeneratorController implements Initializable {
         Paragraph p = new Paragraph("Product Name");
         p.add("\nPrice:500");
         p.add(png);
-        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("barcodes.pdf"));
+        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(barcodeFile.getAbsolutePath()+"\\"+id.getText().trim()+".pdf"));
         document.open();
 //        document.add();
         document.add(table);
         document.close();
 
-        writer.close();*/
+        writer.close();
         
 
+    }
+    
+       @FXML
+    void browserAction(ActionEvent event) {
+  JFileChooser chooser=new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+
+        chooser.setDialogTitle("Choose a directory to save your file: ");
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+        int returnValue = chooser.showSaveDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            if(chooser.getSelectedFile().isDirectory())
+            {
+                JOptionPane.showMessageDialog(null,chooser.getSelectedFile());
+               barcodePath.setText(chooser.getSelectedFile().toString());
+
+            }
+    }
+    }
+    
+    @FXML
+    void barcodeAction(ActionEvent event) {
+      try {
+         // DialogBox.DialogBox.showDialog(DialogBox.DialogBox.change_pass_success);
+         if(id.getText().trim().isEmpty() ){
+             
+             
+         }
+         else{
+             if(barcodePath.getText().trim().isEmpty()){
+                 
+             }else{
+                 barcodeFile= new File(barcodePath.getText()+"\\"+"LibraryBarcode");
+        if(!barcodeFile.exists())
+        {
+            barcodeFile.mkdir();
+        }
+          code();
+             }
+         }
+      } catch (IOException | DocumentException ex) {
+          Logger.getLogger(BarCodeGeneratorController.class.getName()).log(Level.SEVERE, null, ex);
+      }
     }
 
     

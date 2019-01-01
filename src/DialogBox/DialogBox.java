@@ -37,6 +37,7 @@ public class DialogBox {
     public static final int pattern_not_matched=11;
     public static final int pass_not_matched=12;
     public static final int change_pass_success=13;
+    public static final int user_pattern_not_matched=14;
 
     public static void showDialog(int i) {
         switch (i) {
@@ -124,9 +125,16 @@ public class DialogBox {
              case change_pass_success:
                 Alert changeAlert = new Alert(Alert.AlertType.INFORMATION);
                 changeAlert.setHeaderText("Password Changed");
-                changeAlert.setContentText("New Password changed Successfully");
+                changeAlert.setContentText("New Password changed Successfully...!");
                 changeAlert.showAndWait();
                 break;   
+                
+             case  user_pattern_not_matched:
+                  Alert userAl = new Alert(Alert.AlertType.ERROR);
+                userAl.setHeaderText("Username too short");
+                userAl.setContentText("Username must be atleast 5 characters long...!");
+                userAl.showAndWait();
+                break; 
                 
                 
 

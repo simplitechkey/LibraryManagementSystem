@@ -152,7 +152,7 @@ public class LibraryDashBoardController implements Initializable {
            
            Stage closeStage = (Stage) userText.getScene().getWindow();
            closeStage.close();
-           Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+           Parent root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/FXMLDocument.fxml"));
            Stage stage=new Stage();
            Scene scene = new Scene(root);
            stage.initStyle(StageStyle.UNDECORATED);

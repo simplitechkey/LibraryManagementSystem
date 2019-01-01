@@ -28,6 +28,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
@@ -40,6 +41,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Pair;
 
 /**
@@ -92,6 +94,25 @@ public class AddBookController implements Initializable {
     private JFXDatePicker bookbillDateField;
 
     ArrayList<JFXTextField> compulsoryText;
+    
+    @FXML
+    void logOutAction(ActionEvent event) {
+       try {
+           
+           Stage closeStage = (Stage) userText.getScene().getWindow();
+           closeStage.close();
+           Parent root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/FXMLDocument.fxml"));
+           Stage stage=new Stage();
+           Scene scene = new Scene(root);
+           stage.initStyle(StageStyle.UNDECORATED);
+           stage.setScene(scene);
+           stage.show();
+       } catch (IOException ex) {
+           Logger.getLogger(AddBookController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+
+    }
+
 
     @FXML
     void addRecord(ActionEvent event) {

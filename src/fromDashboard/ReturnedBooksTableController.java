@@ -10,8 +10,10 @@ import BeansPackage.ReturnedBookObject;
 import DatabaseHelper.DBLibraryDAO;
 import DialogBox.DialogBox;
 import IssueBook.IssueBookController;
+import bvjiniolibrarymanagement.FXMLDocumentController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -22,6 +24,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -29,6 +32,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -71,6 +75,25 @@ public class ReturnedBooksTableController implements Initializable {
            Logger.getLogger(AddBookController.class.getName()).log(Level.SEVERE, null, ex);
        }
     }
+    
+    @FXML
+    void logOutAction(ActionEvent event) {
+       try {
+           
+           Stage closeStage = (Stage) userText.getScene().getWindow();
+           closeStage.close();
+           Parent root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/FXMLDocument.fxml"));
+           Stage stage=new Stage();
+           Scene scene = new Scene(root);
+           stage.initStyle(StageStyle.UNDECORATED);
+           stage.setScene(scene);
+           stage.show();
+       } catch (IOException ex) {
+           Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+
+    }
+
     @FXML
     void showallrecs(ActionEvent event) {
         try {

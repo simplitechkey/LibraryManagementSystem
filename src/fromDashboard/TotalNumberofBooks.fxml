@@ -35,7 +35,7 @@
          </font>
       </Text>
       <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="536.0" layoutY="111.0" size="80" wrappingWidth="60.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0" />
-      <JFXButton alignment="CENTER" buttonType="RAISED" focusTraversable="false" graphicTextGap="15.0" layoutX="552.0" layoutY="101.0" prefHeight="25.0" prefWidth="120.0" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+      <JFXButton alignment="CENTER" buttonType="RAISED" focusTraversable="false" graphicTextGap="15.0" layoutX="552.0" layoutY="101.0" onAction="#logOutAction" prefHeight="25.0" prefWidth="120.0" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                <image>

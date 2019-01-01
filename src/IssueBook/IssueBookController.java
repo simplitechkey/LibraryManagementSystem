@@ -11,6 +11,7 @@ import DatabaseHelper.DBLibraryDAO;
 import DialogBox.DialogBox;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -59,16 +60,21 @@ public class IssueBookController implements Initializable {
     @FXML
     void issueBookAction(ActionEvent event) {
       try {
-        
+           data=DBLibraryDAO.searchReturnedBookById(searchfield.getText());
             if((searchfield.getText().trim().isEmpty() || (searchfield.getText() == null))) {
           DialogBox.showDialog(DialogBox.dialog_text_null);
            issueBtn.setVisible(false);
             bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
         }else{
-            DBLibraryDAO.issueBookfromTotalBooks(searchfield.getText());
+                if(!searchfield.getText().trim().isEmpty() && data.isEmpty()){
+                       DialogBox.showDialog(DialogBox.no_values_found);
+
+                }else{
+                     DBLibraryDAO.issueBookfromTotalBooks(searchfield.getText());
             DialogBox.showDialog(DialogBox.dialog_issue_successful);
              bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
              bookTableView.refresh();
+                }
             }
         } catch (Exception ex) {
             Logger.getLogger(IssueBookController.class.getName()).log(Level.SEVERE, null, ex);
@@ -124,7 +130,7 @@ public class IssueBookController implements Initializable {
             stage.setScene(scene);
             stage.show();
           
-       } catch (Exception ex) {
+       } catch (IOException ex) {
            Logger.getLogger(AddBookController.class.getName()).log(Level.SEVERE, null, ex);
        }
     }

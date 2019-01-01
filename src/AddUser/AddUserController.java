@@ -21,7 +21,7 @@ import javafx.fxml.Initializable;
  */
 public class AddUserController implements Initializable {
     
-     String regex = "^(?=.*[a-z])(?=.*[A-Z]).{5,}$";
+     String regex = "^.{5,}$";
     @FXML
     private JFXTextField usernameField;
 

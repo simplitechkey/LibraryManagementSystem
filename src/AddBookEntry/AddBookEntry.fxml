@@ -29,7 +29,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <JFXButton alignment="CENTER" buttonType="RAISED" focusTraversable="false" graphicTextGap="15.0" layoutX="532.0" layoutY="81.0" prefHeight="20.0" prefWidth="120.0" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="78.0">
+            <JFXButton alignment="CENTER" buttonType="RAISED" focusTraversable="false" graphicTextGap="15.0" layoutX="532.0" layoutY="81.0" onAction="#logOutAction" prefHeight="20.0" prefWidth="120.0" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="78.0">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -32,14 +32,9 @@ public class IssuedBookObject {
     String billDate="";
 
 
-  /*  public DatabaseSample(String bookId, String bookSubject, String bookBranch) {
-        
-        this.bookId = bookId;
-        this.bookSubject = bookSubject;
-        this.bookBranch = bookBranch;
-       
-    }*/
-    
+  
+ // public IssuedBookObject(String bookId, String bookSubject, String bookBranch, String bookTitle, String accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate,String issuedTo,String class,String issueDate {
+  
  public IssuedBookObject(String bookId, String bookSubject, String bookBranch, String bookTitle, String accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate) {
         
         this.bookId = bookId;
