@@ -269,7 +269,7 @@ public class LibraryDashBoardController implements Initializable {
         try {
             Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
             closestage.close();
-            AnchorPane root = FXMLLoader.load(getClass().getResource("/ReturnBook/ReturnBook.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/ReturnBook/ReturnBook.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1200, 600);
             stage.setTitle("Total Issued Books");

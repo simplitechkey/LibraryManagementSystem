@@ -124,6 +124,7 @@ public class IssuedBooksTableController implements Initializable {
         }
     }
     @Override
+     @SuppressWarnings("unchecked")
     public void initialize(URL url, ResourceBundle rb) {
          try {
               TableColumn<IssuedBookObject,Integer> bookId=new TableColumn("bookID");
@@ -165,11 +166,20 @@ public class IssuedBooksTableController implements Initializable {
               TableColumn<IssuedBookObject,String>bookbillDate=new TableColumn("billDate");
               bookbillDate.setCellValueFactory(new PropertyValueFactory<>("billDate"));
               
+              TableColumn<IssuedBookObject,String>issuedTo=new TableColumn("issuedTo");
+              issuedTo.setCellValueFactory(new PropertyValueFactory<>("issuedTo"));
+              
+              TableColumn<IssuedBookObject,String>studentClass=new TableColumn("studentClass");
+              studentClass.setCellValueFactory(new PropertyValueFactory<>("studentClass"));
+              
+              TableColumn<IssuedBookObject,String>issuedDate=new TableColumn("issuedDate");
+              issuedDate.setCellValueFactory(new PropertyValueFactory<>("issuedDate"));
+              
               
                userText.setText(DBLibraryDAO.userName);
               bookTableView.setItems(DBLibraryDAO.getAllIssuedBooksRecords());
-              // loadDatabaseData();
-              bookTableView.getColumns().addAll(bookId,bookSubject,bookBranch,bookTitle,bookAccountNumber,bookAuthor,bookPublication,bookPrice,bookYear,bookEditionYear,bookSupplier,billNumber,bookbillDate);
+              bookTableView.getColumns().addAll(bookId,bookSubject,bookBranch,bookTitle,bookAccountNumber,bookAuthor,bookPublication,bookPrice,bookYear,bookEditionYear,bookSupplier,billNumber,bookbillDate,issuedTo,studentClass,issuedDate);
+           
           } catch (Exception ex) {
               Logger.getLogger(IssueBookController.class.getName()).log(Level.SEVERE, null, ex);
           }

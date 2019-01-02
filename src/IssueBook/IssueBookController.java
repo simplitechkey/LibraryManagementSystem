@@ -13,6 +13,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,11 +46,19 @@ public class IssueBookController implements Initializable {
     ObservableList<ReturnedBookObject> data=FXCollections.observableArrayList();
       @FXML
     private TableView<ReturnedBookObject> bookTableView;
-
-     @FXML
+       LocalDate today ;
+       
+    @FXML
     private Text userText;
+     
     @FXML
     private JFXButton allrec;
+    
+    @FXML
+    private JFXTextField studentNameField;
+
+    @FXML
+    private JFXTextField studentClassField;
     
     @FXML
     private JFXButton issueBtn;
@@ -70,7 +79,7 @@ public class IssueBookController implements Initializable {
                        DialogBox.showDialog(DialogBox.no_values_found);
 
                 }else{
-                     DBLibraryDAO.issueBookfromTotalBooks(searchfield.getText());
+                     DBLibraryDAO.issueBookfromTotalBooks(searchfield.getText().trim(),studentNameField.getText().trim(),studentClassField.getText().trim(),today.toString());
             DialogBox.showDialog(DialogBox.dialog_issue_successful);
              bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());
              bookTableView.refresh();
@@ -139,6 +148,8 @@ public class IssueBookController implements Initializable {
     @SuppressWarnings("unchecked")
     public void initialize(URL url, ResourceBundle rb) {
           try {
+              
+              today= LocalDate.now();
               TableColumn<ReturnedBookObject,Integer> bookId=new TableColumn("bookID");
               bookId.setCellValueFactory(new PropertyValueFactory<>("bookId"));
               

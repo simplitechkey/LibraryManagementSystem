@@ -30,13 +30,14 @@ public class IssuedBookObject {
     String bookSupplier="";
     String billNo="";
     String billDate="";
-
+    String issuedTo="";
+    String studentClass="";
+    String issuedDate="";
 
   
- // public IssuedBookObject(String bookId, String bookSubject, String bookBranch, String bookTitle, String accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate,String issuedTo,String class,String issueDate {
-  
- public IssuedBookObject(String bookId, String bookSubject, String bookBranch, String bookTitle, String accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate) {
-        
+  public IssuedBookObject(String bookId, String bookSubject, String bookBranch, String bookTitle, String accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate,String issuedTo,String studentClass,String issuedDate) {
+   //public IssuedBookObject(String bookId, String bookSubject, String bookBranch, String bookTitle, String accountNumber, String bookAuthor, String bookPublication,String bookPrice, String bookYear, String bookEditionYear, String bookSupplier, String billNo, String billDate) {
+     
         this.bookId = bookId;
         this.bookSubject = bookSubject;
         this.bookBranch = bookBranch;
@@ -50,6 +51,9 @@ public class IssuedBookObject {
         this.bookSupplier = bookSupplier;
         this.billNo = billNo;
         this.billDate = billDate;
+        this.issuedTo=issuedTo;
+        this.studentClass=studentClass;
+        this.issuedDate=issuedDate;
     }
 
     public String getBookId() {
@@ -154,4 +158,30 @@ public class IssuedBookObject {
     public void setBillDate(String billDate) {
         this.billDate = billDate;
     }
+    
+   public String getIssuedTo() {
+        return issuedTo;
+    }
+
+    public void setIssuedTo(String issuedTo) {
+        this.issuedTo = issuedTo;
+    }
+
+    public String getStudentClass() {
+        return studentClass;
+    }
+
+    public void setStudentClass(String studentClass) {
+        this.studentClass = studentClass;
+    }
+
+    public String getIssuedDate() {
+        return issuedDate;
+    }
+
+    public void setIssuedDate(String issuedDate) {
+        this.issuedDate = issuedDate;
+    }
+    
+    
 }

@@ -97,7 +97,7 @@ public class DBLibraryDAO {
             ResultSet rs = DBUtil.dbExecute(sql);
             ObservableList<IssuedBookObject> bookList = FXCollections.observableArrayList();
             while (rs.next()) {
-                bookList.add(new IssuedBookObject(rs.getString("bookId"), rs.getString("bookSubject"), rs.getString("bookBranch"), rs.getString("bookTitle"), rs.getString("bookAccNo"), rs.getString("bookAuthor"), rs.getString("bookPublication"), rs.getString("bookPrice"), rs.getString("bookYear"), rs.getString("bookEditionYear"), rs.getString("bookSupplier"), rs.getString("billNo"), rs.getString("billDate")));
+                bookList.add(new IssuedBookObject(rs.getString("bookId"), rs.getString("bookSubject"), rs.getString("bookBranch"), rs.getString("bookTitle"), rs.getString("bookAccNo"), rs.getString("bookAuthor"), rs.getString("bookPublication"), rs.getString("bookPrice"), rs.getString("bookYear"), rs.getString("bookEditionYear"), rs.getString("bookSupplier"), rs.getString("billNo"), rs.getString("billDate"),rs.getString("issuedTo"),rs.getString("studentClass"),rs.getString("issuedDate")));
                 //System.out.println("omkar"+rs.getString("bookBranch"));
             }
             return bookList;
@@ -171,7 +171,7 @@ public class DBLibraryDAO {
             ResultSet rs = DBUtil.dbExecute(sql);
             ObservableList<IssuedBookObject> searchedBooksList = FXCollections.observableArrayList();
             while (rs.next()) {
-                searchedBooksList.add(new IssuedBookObject(rs.getString("bookId"), rs.getString("bookSubject"), rs.getString("bookBranch"), rs.getString("bookTitle"), rs.getString("bookAccNo"), rs.getString("bookAuthor"), rs.getString("bookPublication"), rs.getString("bookPrice"), rs.getString("bookYear"), rs.getString("bookEditionYear"), rs.getString("bookSupplier"), rs.getString("billNo"), rs.getString("billDate")));
+                searchedBooksList.add(new IssuedBookObject(rs.getString("bookId"), rs.getString("bookSubject"), rs.getString("bookBranch"), rs.getString("bookTitle"), rs.getString("bookAccNo"), rs.getString("bookAuthor"), rs.getString("bookPublication"), rs.getString("bookPrice"), rs.getString("bookYear"), rs.getString("bookEditionYear"), rs.getString("bookSupplier"), rs.getString("billNo"), rs.getString("billDate"),rs.getString("issuedTo"),rs.getString("studentClass"),rs.getString("issuedDate")));
             }
             return searchedBooksList;
         } catch (Exception e) {
@@ -180,14 +180,14 @@ public class DBLibraryDAO {
 
     }
 
-    public static void issueBookfromTotalBooks(String bookId) throws Exception {
-
+    public static void issueBookfromTotalBooks(String bookId,String issuedTo,String studentClass,String issuedDate) throws Exception {
       
          String sql="insert into tableIssuedBooks ( bookId, bookSubject,bookBranch , bookTitle, bookAccNo, bookAuthor, bookPublication, bookPrice,  bookYear,  bookEditionYear,  bookSupplier,  billNo,  billDate) Select bookId, bookSubject,bookBranch , bookTitle, bookAccNo, bookAuthor, bookPublication, bookPrice,  bookYear,  bookEditionYear,  bookSupplier,  billNo,  billDate from totalNumberofBooks where bookId ='"+bookId+"'";
-
+         String sql2="update  tableIssuedBooks set issuedTo= '"+issuedTo+"', studentClass= '"+studentClass+"', issuedDate = '"+issuedDate+"' where bookId ='"+bookId+"'";
         try {
 
             DBUtil.dbexcuteQuery(sql);
+             DBUtil.dbexcuteQuery(sql2);
             removeEntryfromReturnedIfAvailable(bookId);
 
         } catch (Exception e) {
@@ -199,18 +199,15 @@ public class DBLibraryDAO {
     public static void removeEntryfromReturnedIfAvailable(String bookId) {
         try {
 
-            StringBuilder sbuf = new StringBuilder();
-            Formatter fmt = new Formatter(sbuf);
-            fmt.format("Select * from tableReturnedBooks where bookId = '"+bookId+"'");
+            String sql="Select * from tableReturnedBooks where bookId = '"+bookId+"'";
 
             try {
-                ResultSet rs = DBUtil.dbExecute(sbuf.toString());
+                ResultSet rs = DBUtil.dbExecute(sql);
                 ObservableList<IssuedBookObject> bookList = FXCollections.observableArrayList();
                 if (rs.next()) {
-                    StringBuilder deleteStmnt = new StringBuilder();
-                    Formatter fmtdel = new Formatter(deleteStmnt);
-                    fmtdel.format("delete from tableReturnedBooks where bookId = '"+bookId+"'");
-                    DBUtil.dbexcuteQuery(deleteStmnt.toString());
+                   
+                    String sql2="delete from tableReturnedBooks where bookId = '"+bookId+"'";
+                    DBUtil.dbexcuteQuery(sql2);
                 }
 
             } catch (Exception e) {
@@ -310,6 +307,22 @@ public class DBLibraryDAO {
                 Logger.getLogger(DBLibraryDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
              
+    }
+     
+     public static String getIssuedDateFromId(String bookId){
+        String issuedDate="";
+        
+            try {
+                String sql="Select * from tableIssuedBooks where bookId = '"+bookId+"'";
+                ResultSet rs=DBUtil.dbExecute(sql);
+                if(rs.next()){
+                    issuedDate=rs.getString("issuedDate");
+                }
+                
+            } catch (Exception ex) {
+                Logger.getLogger(DBLibraryDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             return issuedDate;
     }
     
 }

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="597.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IssueBook.IssueBookController">
+<AnchorPane id="AnchorPane" prefHeight="593.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IssueBook.IssueBookController">
    <children>
       <AnchorPane layoutX="50.0" layoutY="14.0" prefHeight="115.0" prefWidth="712.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -49,10 +49,12 @@
       <JFXButton fx:id="allrec" layoutX="74.0" layoutY="558.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
       <JFXTextField fx:id="searchfield" layoutX="200.0" layoutY="160.0" prefHeight="27.0" prefWidth="208.0" promptText="Scan or Enter bookId to Issue Book" />
       <JFXButton layoutX="71.0" layoutY="160.0" onAction="#searchAction" prefHeight="27.0" prefWidth="115.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
-      <JFXButton fx:id="issueBtn" layoutX="512.0" layoutY="155.0" onAction="#issueBookAction" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #ff996a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" text="Issue this book" textFill="WHITE">
+      <JFXButton fx:id="issueBtn" layoutX="428.0" layoutY="155.0" onAction="#issueBookAction" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #ff996a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" text="Issue this book" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
+      <JFXTextField fx:id="studentNameField" layoutX="588.0" layoutY="128.0" prefHeight="27.0" prefWidth="208.0" promptText="Scan or Enter bookId to Issue Book" text="Enter Student Name" />
+      <JFXTextField fx:id="studentClassField" layoutX="588.0" layoutY="161.0" prefHeight="27.0" prefWidth="208.0" promptText="Scan or Enter bookId to Issue Book" text="Enter Student Class" />
    </children>
 </AnchorPane>

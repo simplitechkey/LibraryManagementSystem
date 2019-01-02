@@ -5,18 +5,7 @@
  */
 package DialogBox;
 
-import com.jfoenix.controls.JFXButton;
-import java.io.IOException;
-import java.util.Optional;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 /**
  *
@@ -57,7 +46,7 @@ public class DialogBox {
 
             case dialog_return_successful:
                 Alert alert4 = new Alert(Alert.AlertType.INFORMATION);
-                alert4.setHeaderText("Book Returned Successfully");
+                alert4.setHeaderText("No Overdues..!");
                 alert4.setContentText("Book Returned Successfully");
                 alert4.showAndWait();
                 break;
