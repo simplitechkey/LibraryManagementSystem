@@ -39,7 +39,7 @@
             <Font size="18.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="barcodePath" layoutX="31.0" layoutY="371.0" prefHeight="38.0" prefWidth="241.0" promptText="Enter Path or  Browse Path" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+      <JFXTextField fx:id="barcodePath" editable="false" layoutX="31.0" layoutY="371.0" prefHeight="38.0" prefWidth="241.0" promptText="Enter Path or  Browse Path" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
          <padding>
             <Insets left="20.0" right="20.0" />
          </padding>

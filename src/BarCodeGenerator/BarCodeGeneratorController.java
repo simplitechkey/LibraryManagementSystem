@@ -143,9 +143,9 @@ public class BarCodeGeneratorController implements Initializable {
 //        document.add();
         document.add(table);
         document.close();
-
-        writer.close();
         
+        writer.close();
+       
 
     }
     
@@ -160,11 +160,11 @@ public class BarCodeGeneratorController implements Initializable {
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             if(chooser.getSelectedFile().isDirectory())
             {
-                JOptionPane.showMessageDialog(null,chooser.getSelectedFile());
+               JOptionPane.showMessageDialog(null,chooser.getSelectedFile());
                barcodePath.setText(chooser.getSelectedFile().toString());
 
             }
-    }
+        }
     }
     
     @FXML
@@ -173,11 +173,12 @@ public class BarCodeGeneratorController implements Initializable {
          // DialogBox.DialogBox.showDialog(DialogBox.DialogBox.change_pass_success);
          if(id.getText().trim().isEmpty() ){
              
+             DialogBox.DialogBox.showDialog(DialogBox.DialogBox.field_empty);
              
          }
          else{
              if(barcodePath.getText().trim().isEmpty()){
-                 
+              DialogBox.DialogBox.showDialog(DialogBox.DialogBox.field_empty);
              }else{
                  barcodeFile= new File(barcodePath.getText()+"\\"+"LibraryBarcode");
         if(!barcodeFile.exists())
@@ -190,7 +191,7 @@ public class BarCodeGeneratorController implements Initializable {
       } catch (IOException | DocumentException ex) {
           Logger.getLogger(BarCodeGeneratorController.class.getName()).log(Level.SEVERE, null, ex);
       }
-    }
+    } 
 
     
-}
+ } 
