@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="541.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BarCodeGenerator.BarCodeGeneratorController">
+<AnchorPane id="AnchorPane" prefHeight="541.0" prefWidth="664.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BarCodeGenerator.BarCodeGeneratorController">
    <children>
       <Label fx:id="code" layoutX="108.0" layoutY="119.0" prefHeight="69.0" prefWidth="250.0" />
       <ImageView fx:id="img" fitHeight="150.0" fitWidth="390.0" layoutX="115.0" layoutY="137.0" preserveRatio="true" />
@@ -48,6 +48,6 @@
          </font>
       </JFXTextField>
       <JFXButton layoutX="303.0" layoutY="374.0" onAction="#browserAction" prefHeight="32.0" prefWidth="114.0" text="Browse Path...." />
-      <Label layoutX="233.0" layoutY="111.0" prefHeight="24.0" prefWidth="185.0" text="This is your Generated Barcode  !" />
+      <Label layoutX="233.0" layoutY="111.0" prefHeight="24.0" prefWidth="232.0" text="This is your Generated Barcode  !" />
    </children>
 </AnchorPane>
