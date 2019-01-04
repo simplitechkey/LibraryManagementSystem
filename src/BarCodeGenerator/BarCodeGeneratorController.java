@@ -38,9 +38,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileSystemView;
 import org.krysalis.barcode4j.impl.code128.Code128Bean;
 import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
 
@@ -136,7 +133,7 @@ public class BarCodeGeneratorController implements Initializable {
         Paragraph p = new Paragraph("Product Name");
         p.add("\nPrice:500");
         p.add(png);
-        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(barcodeFile.getAbsolutePath() + "\\" + id.getText().trim() + ".pdf"));
+        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(barcodeFile.getAbsolutePath()+"/" + id.getText().trim() + ".pdf"));
         document.open();
 //        document.add();
         document.add(table);
@@ -150,12 +147,12 @@ public class BarCodeGeneratorController implements Initializable {
     void browserAction(ActionEvent event) {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         Stage stage=new Stage();
-        File selectedDirectory = directoryChooser.showDialog(stage);
+        barcodeFile = directoryChooser.showDialog(stage);
 
-        if (selectedDirectory == null) {
+        if (barcodeFile == null) {
             //No Directory selected
         } else {
-          barcodePath.setText(selectedDirectory.getPath());
+          barcodePath.setText(barcodeFile.getAbsolutePath());
         }
     }
 
