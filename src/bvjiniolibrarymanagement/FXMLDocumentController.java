@@ -77,10 +77,10 @@ public class FXMLDocumentController implements Initializable {
              
               AnchorPane root = FXMLLoader.load(getClass().getResource("/Dashboard/Dashboard.fxml"));
             Scene scene = new Scene(root,1200,600);
-            // stage.initStyle(StageStyle.UTILITY);
+            
             Stage stage=new Stage();
              stage.setResizable(false);
-             stage.setTitle("Add New Book");
+             stage.setTitle("DashBoard");
             stage.setScene(scene);
             stage.show();
            

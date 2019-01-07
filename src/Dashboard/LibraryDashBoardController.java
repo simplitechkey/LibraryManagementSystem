@@ -7,6 +7,8 @@ package Dashboard;
 
 import DatabaseHelper.DBLibraryDAO;
 import DatabaseHelper.DBUtil;
+import animatefx.animation.FadeInLeftBig;
+import animatefx.animation.FadeInRightBig;
 import bvjiniolibrarymanagement.FXMLDocumentController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -62,7 +64,7 @@ public class LibraryDashBoardController implements Initializable {
     String totalBooks = "";
     String totalIssuedBooks = "";
     String remainingBooks = "";
-    
+
     
     @FXML
     private TextField labelTotalEntries;
@@ -75,7 +77,7 @@ public class LibraryDashBoardController implements Initializable {
 
     @FXML
     private Text userText;
-    
+
     @FXML
     private JFXTextField labelnumberofbooksIssued;
 
@@ -97,8 +99,7 @@ public class LibraryDashBoardController implements Initializable {
     @FXML
     void deleteBookAction(ActionEvent event) {
         try {
-            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
-            closestage.close();
+
             Parent root = FXMLLoader.load(getClass().getResource("/DeleteBookEntry/DeleteBookEntry.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1200, 600);
@@ -106,6 +107,10 @@ public class LibraryDashBoardController implements Initializable {
             //stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
+            new FadeInRightBig(root).play();
+
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
 
         } catch (IOException ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
@@ -124,6 +129,7 @@ public class LibraryDashBoardController implements Initializable {
             //stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
+            new FadeInRightBig(root).play();
         } catch (IOException ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -132,50 +138,53 @@ public class LibraryDashBoardController implements Initializable {
     @FXML
     void newBookAction(ActionEvent event) {
         try {
-            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
-            closestage.close();
+
             AnchorPane root = FXMLLoader.load(getClass().getResource("/AddBookEntry/AddBookEntry.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1200, 600);
             stage.setTitle("Add New Book");
-            //stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
+            new FadeInRightBig(root).play();
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
         } catch (IOException ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-     @FXML
+
+    @FXML
     void logOutAction(ActionEvent event) {
-       try {
-           
-           Stage closeStage = (Stage) userText.getScene().getWindow();
-           closeStage.close();
-           Parent root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/FXMLDocument.fxml"));
-           Stage stage=new Stage();
-           Scene scene = new Scene(root);
-           stage.initStyle(StageStyle.UNDECORATED);
-           stage.setScene(scene);
-           stage.show();
-       } catch (IOException ex) {
-           Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-       }
+        try {
+
+            Parent root = FXMLLoader.load(getClass().getResource("/bvjiniolibrarymanagement/FXMLDocument.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+            new FadeInRightBig(root).play();
+            Stage closeStage = (Stage) userText.getScene().getWindow();
+            closeStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
-    
-      @FXML
+
+    @FXML
     void generateBarcodeAction(ActionEvent event) {
         try {
-            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
-            closestage.close();
+
             AnchorPane root = FXMLLoader.load(getClass().getResource("/BarCodeGenerator/BarCodeGenerator.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1200, 600);
             stage.setTitle("Add New Book");
-            //stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
+            new FadeInRightBig(root).play();
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
         } catch (IOException ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -188,7 +197,6 @@ public class LibraryDashBoardController implements Initializable {
         dialog.setHeaderText("Please use admin username and password");
 
         //dialog.setGraphic(new ImageView(this.getClass().getResource("l1.jpg").toString()));
-
         ButtonType loginButtonType = new ButtonType("Login", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
 
@@ -229,10 +237,9 @@ public class LibraryDashBoardController implements Initializable {
 
         result.ifPresent(usernamePassword -> {
             System.out.println("Username=" + usernamePassword.getKey() + ", Password=" + usernamePassword.getValue());
-            if(DBLibraryDAO.validateUser(usernamePassword.getKey(),usernamePassword.getValue())){
+            if (DBLibraryDAO.validateUser(usernamePassword.getKey(), usernamePassword.getValue())) {
                 try {
-                    Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
-                    closestage.close();
+
                     AnchorPane root = FXMLLoader.load(getClass().getResource("/ChangePassword/ChangePassword.fxml"));
                     Stage stage = new Stage();
                     Scene scene = new Scene(root, 1200, 600);
@@ -240,6 +247,9 @@ public class LibraryDashBoardController implements Initializable {
                     //stage.initStyle(StageStyle.UNDECORATED);
                     stage.setScene(scene);
                     stage.show();
+                    new FadeInRightBig(root).play();
+                    Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+                    closestage.close();
                 } catch (IOException ex) {
                     Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -247,11 +257,10 @@ public class LibraryDashBoardController implements Initializable {
         });
     }
 
-       @FXML
+    @FXML
     void changePasswordAction(ActionEvent event) {
         try {
-            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
-            closestage.close();
+
             AnchorPane root = FXMLLoader.load(getClass().getResource("/ChangePassword/ChangePassword.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1200, 600);
@@ -259,16 +268,18 @@ public class LibraryDashBoardController implements Initializable {
             //stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
+            new FadeInRightBig(root).play();
         } catch (Exception ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     void returnBookAction(ActionEvent event) {
         try {
-            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
-            closestage.close();
+
             Parent root = FXMLLoader.load(getClass().getResource("/ReturnBook/ReturnBook.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1200, 600);
@@ -276,6 +287,10 @@ public class LibraryDashBoardController implements Initializable {
             //stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
+
+            new FadeInRightBig(root).play();
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
         } catch (IOException ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -284,8 +299,7 @@ public class LibraryDashBoardController implements Initializable {
     @FXML
     void totalbookscreenpress(MouseEvent event) {
         try {
-            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
-            closestage.close();
+
             Stage stage;
             stage = new Stage();
             AnchorPane root = FXMLLoader.load(getClass().getResource("/fromDashboard/TotalNumberofBooks.fxml"));
@@ -295,6 +309,9 @@ public class LibraryDashBoardController implements Initializable {
             stage.setTitle("Total Books");
             stage.setScene(scene);
             stage.show();
+            new FadeInRightBig(root).play();
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
         } catch (IOException ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -304,8 +321,6 @@ public class LibraryDashBoardController implements Initializable {
     void gotoIssuebookTable(MouseEvent event) {
         try {
 
-            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
-            closestage.close();
             Stage stage;
             stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/fromDashboard/IssuedBooksTable.fxml"));
@@ -314,7 +329,9 @@ public class LibraryDashBoardController implements Initializable {
             stage.setTitle("Issue New Book");
             stage.setScene(scene);
             stage.show();
-
+            new FadeInRightBig(root).play();
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
         } catch (IOException ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -323,8 +340,7 @@ public class LibraryDashBoardController implements Initializable {
     @FXML
     void gotoRemainingBookTable(MouseEvent event) {
         try {
-            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
-            closestage.close();
+
             Stage stage;
             stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/fromDashboard/ReturnedBooksTable.fxml"));
@@ -333,6 +349,9 @@ public class LibraryDashBoardController implements Initializable {
             stage.setTitle("Return Book");
             stage.setScene(scene);
             stage.show();
+            new FadeInRightBig(root).play();
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
         } catch (IOException ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -342,8 +361,7 @@ public class LibraryDashBoardController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
-            
-            
+
             totalBooks = String.valueOf(DBLibraryDAO.getAllRecords().size());
             totalIssuedBooks = String.valueOf(String.valueOf(DBLibraryDAO.getAllIssuedBooksRecords().size()));
             remainingBooks = String.valueOf((DBLibraryDAO.getAllRecords().size() - DBLibraryDAO.getAllIssuedBooksRecords().size()));
@@ -351,7 +369,7 @@ public class LibraryDashBoardController implements Initializable {
             labelnumberofbooksIssued.setStyle("-fx-text-fill: white;");
             booksRemainingLabel.setStyle("-fx-text-fill: white;");
             refreshDashBoard();
-          
+
             /*  Timeline timeline = new Timeline(
                               new KeyFrame(Duration.seconds(0.5), (ActionEvent actionEvent) -> {
                                   // Call refreshDashBoard method for every 2 sec.
@@ -367,7 +385,7 @@ public class LibraryDashBoardController implements Initializable {
             DBLibraryDAO.getAllRecords();
             DBLibraryDAO.getAllIssuedBooksRecords();
             DBLibraryDAO.getAllReturnedBooksRecords();
-             userText.setText("Welcome "+DBLibraryDAO.userName+"!");
+            userText.setText("Welcome " + DBLibraryDAO.userName + "!");
         } catch (Exception ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -63,15 +63,11 @@ public class ReturnBookController implements Initializable {
 
     public static final long MAX_DAYS_OF_BOOKS = 3;
     public static long diff;
+  
     ObservableList<IssuedBookObject> data = FXCollections.observableArrayList();
-    @FXML
-    private Text userText;
-
+ 
     @FXML
     private TableView<IssuedBookObject> bookTableView;
-
-    @FXML
-    private JFXButton allrec;
 
     @FXML
     private JFXTextField searchfield;
@@ -98,7 +94,7 @@ public class ReturnBookController implements Initializable {
 
                     Dialog<Pair<String, String>> dialog = new Dialog<>();
                     dialog.setTitle("OverDue");
-                    dialog.setHeaderText("Book Due Date is Over .Return is " + String.valueOf(diff) + " days late \n Fine to Be Collected = " + String.valueOf(diff * 2)+"\n If fine is Paid Please enter username and password");
+                    dialog.setHeaderText("Book Due Date is Over .Return is " + String.valueOf(diff-MAX_DAYS_OF_BOOKS) + " days late \n Fine to Be Collected = " + String.valueOf((diff-MAX_DAYS_OF_BOOKS) * 2)+"\n If fine is Paid Please enter username and password");
 
                     //dialog.setGraphic(new ImageView(this.getClass().getResource("l1.jpg").toString()));
                     ButtonType loginButtonType = new ButtonType("Login", ButtonBar.ButtonData.OK_DONE);
@@ -180,8 +176,7 @@ public class ReturnBookController implements Initializable {
                     DialogBox.showDialog(DialogBox.no_values_found);
                     returnBtn.setVisible(false);
                 } else {
-                    //data=DBLibraryDAO.searchIssuedBookBookById(Integer.parseInt(searchfield.getText()));
-                    returnBtn.setVisible(true);
+                     returnBtn.setVisible(true);
                     bookTableView.setItems(data);
                 }
             }
@@ -211,13 +206,12 @@ public class ReturnBookController implements Initializable {
             Stage stage = new Stage();
             AnchorPane root = FXMLLoader.load(getClass().getResource("/Dashboard/Dashboard.fxml"));
             Scene scene = new Scene(root, 1200, 600);
-            // stage.initStyle(StageStyle.UTILITY);
             stage.setResizable(false);
             stage.setTitle("Add New Book");
             stage.setScene(scene);
             stage.show();
 
-        } catch (Exception ex) {
+        } catch (IOException ex) {
             Logger.getLogger(ReturnBookController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

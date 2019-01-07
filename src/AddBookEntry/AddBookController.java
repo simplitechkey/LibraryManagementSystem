@@ -14,9 +14,11 @@ import java.io.IOException;
 //import java.awt.Insets;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Formatter;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -162,12 +164,14 @@ public class AddBookController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         compulsoryText = new ArrayList<>(Arrays.asList(bookIdField, bookAccNoField, bookAuthorField, bookBranchField, bookEditionField, bookNoField, bookPriceField, bookPublicationField, bookSubjectField, bookSupplierField, bookTitleField, bookYearField));
         userText.setText(DBLibraryDAO.userName);
+       
+
 
     }
 
     private boolean noFieldEmpty() {
         for (int i = 0; i < compulsoryText.size(); i++) {
-            return !(compulsoryText.get(i).getText().trim().isEmpty() || compulsoryText.get(i).getText().equals("") || bookbillDateField.getEditor().getText().isEmpty());
+            return (compulsoryText.get(i).getText().trim().isEmpty() || compulsoryText.get(i).getText().equals("") || bookbillDateField.getEditor().getText().isEmpty());
 
         }
         return false;

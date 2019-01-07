@@ -44,13 +44,11 @@ public class DBLibraryDAO {
     }
 
     public static void deleteBookbyID(String bookId) {
-        //String sql="insert into LibraryDb ( bookId, bookSubject, branchOfBook, bookTitle, accNo, bookAuthor, bookPublication, bookPrice,  bookYear,  bookEditionYear,  bookSupplier,  billNo,  billDate) values ('"+bookId+"','"+bookSubject+"','"+branchOfBook+"','"+bookTitle+"','"+accNo+"','"+bookAuthor+"','"+bookPublication+"','"+bookPrice+"','"+bookYear+"','"+bookEditionYear+"','"+bookSupplier+"','"+billNo+"','"+billDate+"')";
 
-        StringBuilder sbuf = new StringBuilder();
-        Formatter fmt = new Formatter(sbuf);
-        fmt.format("delete from totalNumberofBooks where bookId = '"+bookId+"'");
+     String sql="delete from totalNumberofBooks where bookId = '"+bookId+"'";
+      
         try {
-            DBUtil.dbexcuteQuery(sbuf.toString());
+            DBUtil.dbexcuteQuery(sql);
         } catch (Exception e) {
 
         }
@@ -87,7 +85,6 @@ public class DBLibraryDAO {
             Logger.getLogger(DBLibraryDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-
     }
 
     public static ObservableList<IssuedBookObject> getAllIssuedBooksRecords() throws Exception {
@@ -129,16 +126,14 @@ public class DBLibraryDAO {
     }
 
     public static ObservableList<DatabaseSample> searchBookById(String bookId) throws Exception {
-        StringBuilder sbuf = new StringBuilder();
-        Formatter fmt = new Formatter(sbuf);
-        fmt.format("Select * from totalNumberofBooks where bookId = '"+bookId+"'");
+       
+        String sql="Select * from totalNumberofBooks where bookId = '"+bookId+"'";
 
         try {
-            ResultSet rs = DBUtil.dbExecute(sbuf.toString());
+            ResultSet rs = DBUtil.dbExecute(sql);
             ObservableList<DatabaseSample> searchedBooksList = DBLibraryDAO.getBookObjects(rs);
             return searchedBooksList;
         } catch (Exception e) {
-            e.printStackTrace();
             throw e;
         }
 

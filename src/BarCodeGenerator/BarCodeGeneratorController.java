@@ -49,6 +49,7 @@ import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
 public class BarCodeGeneratorController implements Initializable {
 
     File barcodeFile;
+    
     @FXML
     private JFXTextField barcodePath;
     @FXML
@@ -82,11 +83,7 @@ public class BarCodeGeneratorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        /*  barcodeFile= new File(barcodePath.getText()+"\\"+"LibraryBarCode");
-        if(!barcodeFile.exists())
-        {
-            barcodeFile.mkdir();
-        }*/
+    
 
     }
 
@@ -108,19 +105,20 @@ public class BarCodeGeneratorController implements Initializable {
         }
 
         Image png = Image.getInstance(baos.toByteArray());
-        png.setAbsolutePosition(0, 705);
+        png.setAbsolutePosition(0,705);
         png.scalePercent(25);
 
         javafx.scene.image.Image newimage = new javafx.scene.image.Image("file:barcode.png");
         img.setImage(newimage);
-        Document document;
-        document = new Document();
+        
+        
+        Document document = new Document();
         PdfPTable table = new PdfPTable(3);
         table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
         for (int aw = 0; aw < 27; aw++) {
             Paragraph p = new Paragraph("        Product Name");
             p.add("\n        Price:500");
-//           p.add(createImageCell(png));
+//        p.add(createImageCell(png));
             PdfPTable intable = new PdfPTable(1);
             intable.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
             intable.addCell(p);
@@ -153,9 +151,10 @@ public class BarCodeGeneratorController implements Initializable {
             //No Directory selected
         } else {
           barcodePath.setText(barcodeFile.getAbsolutePath());
-        }
+        }    
     }
 
+    
     @FXML
     void barcodeAction(ActionEvent event) {
         try {
