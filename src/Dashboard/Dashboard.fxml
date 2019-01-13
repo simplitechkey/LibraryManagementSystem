@@ -36,15 +36,7 @@
                         <Insets top="15.0" />
                      </VBox.margin>
                   </JFXButton>
-                  <JFXButton fx:id="newBookButton" buttonType="RAISED" graphicTextGap="30.0" onAction="#newBookAction" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: #ff996a; -fx-background-radius: 10;" text="Add New Book" textFill="WHITE">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="15.0" />
-                     </VBox.margin>
-                  </JFXButton>
-                  <JFXButton fx:id="deleteBookButton" buttonType="RAISED" graphicTextGap="30.0" onAction="#deleteBookAction" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: #ff996a; -fx-background-radius: 10;" text="Delete a Book" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" graphicTextGap="30.0" onAction="#addorDeleteStudentAction" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: #ff996a; -fx-background-radius: 10;" text="Add or Delete Student" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -154,17 +146,17 @@
                   </JFXTextField>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="labelTotalNumberOfBookslabelTotalNumberOfUsers" layoutX="443.0" layoutY="329.0" prefHeight="141.0" prefWidth="305.0" style="-fx-background-color: #81d4fa#81d4fa; -fx-background-radius: 20;">
+            <AnchorPane layoutX="443.0" layoutY="329.0" onMousePressed="#gotoTotalNumberOfStudents" prefHeight="141.0" prefWidth="305.0" style="-fx-background-color: #81d4fa#81d4fa; -fx-background-radius: 20;">
                <effect>
                   <DropShadow />
                </effect>
                <children>
-                  <Label alignment="CENTER" layoutX="23.0" layoutY="78.0" prefHeight="39.0" prefWidth="237.0" text="Total Number of Users" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="23.0" layoutY="78.0" prefHeight="39.0" prefWidth="237.0" text="Total Number of Students" textFill="WHITE">
                      <font>
                         <Font name="Al Bayan Plain" size="18.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="booksRemaininglabel" alignment="CENTER" editable="false" focusColor="#ffffff00" layoutX="65.0" layoutY="14.0" prefHeight="67.0" prefWidth="176.0" promptText="sad" style="-fx-background-color: transparent;" text="Loading..." unFocusColor="#4d4d4d00">
+                  <JFXTextField fx:id="labelNoOfStudents" alignment="CENTER" editable="false" focusColor="#ffffff00" layoutX="65.0" layoutY="14.0" prefHeight="67.0" prefWidth="176.0" promptText="sad" style="-fx-background-color: transparent;" text="Loading..." unFocusColor="#4d4d4d00">
                      <font>
                         <Font name="System Bold" size="35.0" />
                      </font>

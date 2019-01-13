@@ -79,7 +79,7 @@ public class DialogBox {
 
             case field_empty:
                 Alert emptyAlert = new Alert(Alert.AlertType.ERROR);
-                emptyAlert.setContentText("One or More Field Are Empty");
+                emptyAlert.setContentText("One or More Fields Are Empty");
                 emptyAlert.showAndWait();
                 break;
 

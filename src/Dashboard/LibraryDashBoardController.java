@@ -64,6 +64,7 @@ public class LibraryDashBoardController implements Initializable {
     String totalBooks = "";
     String totalIssuedBooks = "";
     String remainingBooks = "";
+    String totalStudents="";
 
     
     @FXML
@@ -81,22 +82,22 @@ public class LibraryDashBoardController implements Initializable {
     @FXML
     private JFXTextField labelnumberofbooksIssued;
 
-    @FXML
-    private AnchorPane labelTotalNumberOfBookslabelTotalNumberOfUsers;
 
     @FXML
     private JFXButton bookReturnBtn;
 
-    @FXML
-    private JFXButton deleteBookButton;
-
-    @FXML
-    private JFXButton newBookButton;
 
     @FXML
     private JFXButton bookIssueButton;
-
     @FXML
+    private JFXButton accountButton;
+    @FXML
+    private AnchorPane labelTotalNumberOfBooks;
+    @FXML
+    private AnchorPane labelTotalNumberOfBookslabelTotalNumberOfBooksRemaining;
+    @FXML
+    private JFXTextField labelNoOfStudents;
+
     void deleteBookAction(ActionEvent event) {
         try {
 
@@ -135,7 +136,6 @@ public class LibraryDashBoardController implements Initializable {
         }
     }
 
-    @FXML
     void newBookAction(ActionEvent event) {
         try {
 
@@ -361,13 +361,14 @@ public class LibraryDashBoardController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
-
+            totalStudents=String.valueOf(DBLibraryDAO.getAllStudents().size());
             totalBooks = String.valueOf(DBLibraryDAO.getAllRecords().size());
             totalIssuedBooks = String.valueOf(String.valueOf(DBLibraryDAO.getAllIssuedBooksRecords().size()));
             remainingBooks = String.valueOf((DBLibraryDAO.getAllRecords().size() - DBLibraryDAO.getAllIssuedBooksRecords().size()));
             labelTotalEntries.setStyle("-fx-text-fill: white;");
             labelnumberofbooksIssued.setStyle("-fx-text-fill: white;");
             booksRemainingLabel.setStyle("-fx-text-fill: white;");
+            labelNoOfStudents.setStyle("-fx-text-fill: white;");
             refreshDashBoard();
 
             /*  Timeline timeline = new Timeline(
@@ -394,12 +395,53 @@ public class LibraryDashBoardController implements Initializable {
 
     private void refreshDashBoard() {
         try {
-
+            labelNoOfStudents.setText(totalStudents);
             labelTotalEntries.setText(totalBooks);
             labelnumberofbooksIssued.setText(totalIssuedBooks);
             booksRemainingLabel.setText(remainingBooks);
 
         } catch (Exception ex) {
+            Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void addorDeleteStudentAction(ActionEvent event) {
+        
+        try {
+            Stage stage;
+            stage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/AddStudent/AddStudent.fxml"));
+            Scene scene = new Scene(root, 1200, 600);
+            stage.setResizable(false);
+            stage.setTitle("Return Book");
+            stage.setScene(scene);
+            stage.show();
+            new FadeInRightBig(root).play();
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void gotoTotalNumberOfStudents(MouseEvent event) {
+        
+         try {
+
+            Stage stage;
+            stage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/fromDashboard/StudentsTable.fxml"));
+            Scene scene = new Scene(root, 1200, 600);
+            stage.setResizable(false);
+            stage.setTitle("Return Book");
+            stage.setScene(scene);
+            stage.show();
+            new FadeInRightBig(root).play();
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
+        } catch (IOException ex) {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

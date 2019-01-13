@@ -6,13 +6,21 @@
 package AddUser;
 
 import DatabaseHelper.DBLibraryDAO;
+import ReturnBook.ReturnBookController;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -57,6 +65,22 @@ public class AddUserController implements Initializable {
 
     @FXML
     void backAction(ActionEvent event) {
+        
+        try {
+
+            Stage stagetemp = (Stage) usernameField.getScene().getWindow();
+            stagetemp.close();
+            Stage stage = new Stage();
+            AnchorPane root = FXMLLoader.load(getClass().getResource("/Dashboard/Dashboard.fxml"));
+            Scene scene = new Scene(root, 1200, 600);
+            stage.setResizable(false);
+            stage.setTitle("Add New Book");
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(ReturnBookController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
     @Override

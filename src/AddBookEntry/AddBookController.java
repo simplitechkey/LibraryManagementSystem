@@ -11,7 +11,6 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.IntegerValidator;
 import java.io.IOException;
-//import java.awt.Insets;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.time.format.DateTimeFormatter;

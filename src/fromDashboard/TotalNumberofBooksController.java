@@ -7,9 +7,11 @@ package fromDashboard;
 
 import AddBookEntry.AddBookController;
 import BeansPackage.DatabaseSample;
+import Dashboard.LibraryDashBoardController;
 import DatabaseHelper.DBLibraryDAO;
 import DatabaseHelper.DBUtil;
 import DialogBox.DialogBox;
+import animatefx.animation.FadeInRightBig;
 import bvjiniolibrarymanagement.FXMLDocumentController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -56,16 +58,17 @@ public class TotalNumberofBooksController implements Initializable {
      @FXML
     private Text userText;
 
-    @FXML
     private JFXTextField subjectField;
 
-    @FXML
-    private JFXTextField idField;
     
     @FXML
     private JFXTextField searchfield;
     @FXML
     private JFXButton allrec;
+    @FXML
+    private JFXButton newBookButton;
+    @FXML
+    private JFXButton deleteBookButton;
     
     
     @FXML
@@ -115,6 +118,44 @@ public class TotalNumberofBooksController implements Initializable {
         }
     }
     @FXML
+    void newBookAction(ActionEvent event) {
+        try {
+
+            AnchorPane root = FXMLLoader.load(getClass().getResource("/AddBookEntry/AddBookEntry.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 1200, 600);
+            stage.setTitle("Add New Book");
+            stage.setScene(scene);
+            stage.show();
+            new FadeInRightBig(root).play();
+            Stage closestage = (Stage) searchfield.getScene().getWindow();
+            closestage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    void deleteBookAction(ActionEvent event) {
+        try {
+
+            Parent root = FXMLLoader.load(getClass().getResource("/DeleteBookEntry/DeleteBookEntry.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 1200, 600);
+            stage.setTitle("Delete Book");
+            //stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+            new FadeInRightBig(root).play();
+
+            Stage closestage = (Stage) searchfield.getScene().getWindow();
+            closestage.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    @FXML
     void backAction(ActionEvent event) {
        try {
           
@@ -132,7 +173,6 @@ public class TotalNumberofBooksController implements Initializable {
            Logger.getLogger(AddBookController.class.getName()).log(Level.SEVERE, null, ex);
        }
     }
-    @FXML
     void addAction(ActionEvent event) {
         try {
             //DBLibraryDAO.insertBook(Integer.parseInt(idField.getText()), subjectField.getText(), branchField.getText());
@@ -143,7 +183,6 @@ public class TotalNumberofBooksController implements Initializable {
         }
     }
 
-    @FXML
     void deleteAction(ActionEvent event) {
         try{
         DBLibraryDAO.deleteBookbyID(searchfield.getText());
@@ -154,7 +193,6 @@ public class TotalNumberofBooksController implements Initializable {
         }
     }
 
-    @FXML
     void updateAction(ActionEvent event) {
             try{
                 DBLibraryDAO.updateBook(searchfield.getText(), subjectField.getText());
