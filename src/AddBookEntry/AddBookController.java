@@ -169,11 +169,14 @@ public class AddBookController implements Initializable {
     }
 
     private boolean noFieldEmpty() {
+        boolean isFieldEmpty=true;
         for (int i = 0; i < compulsoryText.size(); i++) {
-            return (compulsoryText.get(i).getText().trim().isEmpty() || compulsoryText.get(i).getText().equals("") || bookbillDateField.getEditor().getText().isEmpty());
+          if(compulsoryText.get(i).getText().trim().isEmpty() || compulsoryText.get(i).getText().equals("") || bookbillDateField.getEditor().getText().isEmpty()){
+            isFieldEmpty=false;
+        }
 
         }
-        return false;
+        return isFieldEmpty;
     }
 
     private boolean notDuplicateEntry() {
