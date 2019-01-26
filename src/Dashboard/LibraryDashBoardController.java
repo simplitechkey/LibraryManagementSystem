@@ -240,7 +240,7 @@ public class LibraryDashBoardController implements Initializable {
             if (DBLibraryDAO.validateUser(usernamePassword.getKey(), usernamePassword.getValue())) {
                 try {
 
-                    AnchorPane root = FXMLLoader.load(getClass().getResource("/ChangePassword/ChangePassword.fxml"));
+                    AnchorPane root = FXMLLoader.load(getClass().getResource("/AddUser/AddUser.fxml"));
                     Stage stage = new Stage();
                     Scene scene = new Scene(root, 1200, 600);
                     stage.setTitle("Total Issued Books");

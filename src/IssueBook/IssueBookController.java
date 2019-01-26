@@ -81,7 +81,7 @@ public class IssueBookController implements Initializable {
     void issueBookAction(ActionEvent event) {
         try {
             data = DBLibraryDAO.searchReturnedBookById(searchfield.getText());
-            if ((searchfield.getText().trim().isEmpty() || (searchfield.getText() == null))) {
+            if ((searchfield.getText().trim().isEmpty() || (searchfield.getText() == null) || enrollmentIdField.getText().isEmpty())) {
                 DialogBox.showDialog(DialogBox.dialog_text_null);
                 issueBtn.setVisible(false);
                 bookTableView.setItems(DBLibraryDAO.getAllReturnedBooksRecords());

@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="529.0" prefWidth="547.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #ff996a; -fx-border-width: 4;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bvjiniolibrarymanagement.FXMLDocumentController">
    <children>
       <AnchorPane id="AnchorPane" layoutX="24.0" layoutY="15.0" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: white; -fx-border-color: #ff996a; -fx-background-radius: 55; -fx-border-radius: 50; -fx-border-color: #ff996a; -fx-border-width: 10;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
@@ -25,7 +24,7 @@
                   <Insets left="30.0" />
                </padding>
             </Label>
-            <JFXTextField fx:id="loginfield" focusColor="#ffffff00" layoutX="131.0" layoutY="269.0" prefHeight="40.0" prefWidth="230.0" promptText="Username" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" unFocusColor="#ffffff00">
+            <JFXTextField fx:id="loginfield" focusColor="#ffffff00" layoutX="131.0" layoutY="269.0" prefHeight="40.0" prefWidth="230.0" promptText="Username" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a; -fx-prompt-text-fill: #C0C0C0;" unFocusColor="#ffffff00">
                <font>
                   <Font size="18.0" />
                </font>
@@ -37,7 +36,7 @@
                </padding>
             </JFXTextField>
             <FontAwesomeIconView glyphName="USER" layoutX="329.0" layoutY="293.0" size="20.0" text="" />
-            <JFXPasswordField fx:id="passwordfield" focusColor="#ffffff00" layoutX="131.0" layoutY="336.0" prefHeight="40.0" prefWidth="230.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" unFocusColor="#ffffff00">
+            <JFXPasswordField fx:id="passwordfield" focusColor="#ffffff00" layoutX="131.0" layoutY="336.0" prefHeight="40.0" prefWidth="230.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a; -fx-prompt-text-fill: #C0C0C0;" unFocusColor="#ffffff00">
                <font>
                   <Font size="18.0" />
                </font>
