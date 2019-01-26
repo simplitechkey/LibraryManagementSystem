@@ -46,7 +46,7 @@
       </AnchorPane>
       <VBox layoutX="91.0" layoutY="147.0">
          <children>
-            <JFXTextField fx:id="bookIdField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Book id" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+            <JFXTextField fx:id="bookIdField" prefHeight="38.0" prefWidth="180.0" promptText="Enter Book id" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
                <padding>
                   <Insets left="20.0" right="20.0" />
                </padding>
@@ -57,7 +57,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </JFXTextField>
-            <JFXTextField fx:id="bookSubjectField" prefHeight="38.0" prefWidth="193.0" promptText="Enter Book Subject" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+            <JFXTextField fx:id="bookSubjectField" prefHeight="38.0" prefWidth="181.0" promptText="Enter Book Subject" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
                <padding>
                   <Insets left="20.0" right="20.0" />
                </padding>
@@ -189,12 +189,19 @@
             </JFXDatePicker>
          </children>
       </VBox>
-      <JFXButton buttonType="RAISED" layoutX="392.0" layoutY="529.0" onAction="#addRecord" prefHeight="48.0" prefWidth="176.0" style="-fx-background-color: #393939;" text="Add Book Entry" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="392.0" layoutY="529.0" onAction="#addRecord" prefHeight="48.0" prefWidth="190.0" style="-fx-background-color: #ff996a;" text="Add Book Entry" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
          <effect>
             <DropShadow />
-         </effect></JFXButton>
+         </effect>
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../issuebook12.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
    </children>
 </AnchorPane>

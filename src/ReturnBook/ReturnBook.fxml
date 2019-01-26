@@ -8,11 +8,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="597.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReturnBook.ReturnBookController">
+<AnchorPane id="AnchorPane" prefHeight="597.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReturnBook.ReturnBookController">
    <children>
       <AnchorPane layoutX="50.0" layoutY="14.0" prefHeight="115.0" prefWidth="200.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -46,7 +47,7 @@
          </effect>
       </TableView>
       <JFXButton fx:id="allrec" layoutX="74.0" layoutY="558.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
-      <JFXTextField fx:id="searchfield" focusColor="#405aa800" layoutX="224.0" layoutY="159.0" prefHeight="27.0" prefWidth="219.0" promptText="Scan or Enter bookId to Return " unFocusColor="#4d4d4d00" />
+      <HBox prefHeight="100.0" prefWidth="200.0" />
       <JFXButton layoutX="65.0" layoutY="153.0" onAction="#searchAction" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
       <JFXButton fx:id="returnBtn" layoutX="487.0" layoutY="154.0" onAction="#returnBookAction" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #ff996a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" text="Return this Book" textFill="WHITE">
          <font>
@@ -54,5 +55,7 @@
          </font>
       </JFXButton>
       <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="611.0" layoutY="110.0" size="80" wrappingWidth="60.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="0.0" />
+      <JFXTextField fx:id="searchfield" focusColor="#405aa800" layoutX="213.0" layoutY="160.0" prefHeight="27.0" prefWidth="219.0" promptText="Scan or Enter bookId to Return " unFocusColor="#4d4d4d00" />
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="405.0" layoutY="177.0" />
    </children>
 </AnchorPane>

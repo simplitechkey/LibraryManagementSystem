@@ -67,13 +67,30 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../addbook.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXButton layoutX="271.0" layoutY="190.0" onAction="#deleteStudentAction" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #ff996a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" text="Delete Student" textFill="WHITE">
+      <JFXButton layoutX="240.0" layoutY="187.0" onAction="#deleteStudentAction" prefHeight="32.0" prefWidth="158.0" style="-fx-background-color: #ff996a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" text="Delete Student" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../adddelete1.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </JFXButton>
-      <JFXTextField fx:id="idFIeld" layoutX="42.0" layoutY="196.0" prefHeight="25.0" prefWidth="178.0" promptText="Enter EnrollmentId to delete" />
-      <JFXButton fx:id="allrec" layoutX="102.0" layoutY="557.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="102.0" />
+      <JFXTextField fx:id="idFIeld" layoutX="50.0" layoutY="196.0" prefHeight="25.0" prefWidth="178.0" promptText="Enter EnrollmentId to delete" />
+      <JFXButton fx:id="allrec" layoutX="50.0" layoutY="556.0" onAction="#showallrecs" prefHeight="38.0" prefWidth="135.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a; -fx-background-color: white;" text="Refresh Table" textFill="#0d0d0d" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="50.0">
+         <font>
+            <Font size="14.0" />
+         </font></JFXButton>
    </children>
 </AnchorPane>

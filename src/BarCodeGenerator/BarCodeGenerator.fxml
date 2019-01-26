@@ -5,6 +5,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -12,8 +13,8 @@
 <AnchorPane id="AnchorPane" prefHeight="541.0" prefWidth="664.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BarCodeGenerator.BarCodeGeneratorController">
    <children>
       <Label fx:id="code" layoutX="108.0" layoutY="119.0" prefHeight="69.0" prefWidth="250.0" />
-      <ImageView fx:id="img" fitHeight="150.0" fitWidth="390.0" layoutX="115.0" layoutY="137.0" preserveRatio="true" />
-      <JFXTextField fx:id="id" layoutX="31.0" layoutY="305.0" prefHeight="38.0" prefWidth="348.0" promptText="Enter Barcode Id to generate barcode" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="390.0" layoutX="115.0" layoutY="154.0" preserveRatio="true" />
+      <JFXTextField fx:id="id" layoutX="136.0" layoutY="310.0" prefHeight="38.0" prefWidth="348.0" promptText="Enter Barcode Id to generate barcode" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
          <padding>
             <Insets left="20.0" right="20.0" />
          </padding>
@@ -21,13 +22,20 @@
             <Font size="17.0" />
          </font>
       </JFXTextField>
-      <JFXButton fx:id="btn" buttonType="RAISED" layoutX="133.0" layoutY="428.0" onAction="#barcodeAction" prefHeight="48.0" prefWidth="200.0" style="-fx-background-color: #393939;" text="Generate Barcode" textFill="WHITE">
+      <JFXButton fx:id="btn" buttonType="RAISED" layoutX="216.0" layoutY="428.0" onAction="#barcodeAction" prefHeight="48.0" prefWidth="232.0" style="-fx-background-color: #ff996a;" text="Generate Barcode" textFill="WHITE">
          <font>
-            <Font size="17.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
          <effect>
             <DropShadow />
          </effect>
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../584bf0c8a62aaa830c43edb4.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </JFXButton>
       <AnchorPane layoutY="78.0" prefHeight="110.0" prefWidth="600.0" style="-fx-background-color: #393939;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -39,7 +47,7 @@
             <Font size="18.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="barcodePath" editable="false" layoutX="31.0" layoutY="371.0" prefHeight="38.0" prefWidth="241.0" promptText="Enter Path or  Browse Path" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
+      <JFXTextField fx:id="barcodePath" editable="false" layoutX="133.0" layoutY="368.0" prefHeight="38.0" prefWidth="241.0" promptText="Enter Path or  Browse Path" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" unFocusColor="#4d4d4d00">
          <padding>
             <Insets left="20.0" right="20.0" />
          </padding>
@@ -47,7 +55,10 @@
             <Font size="13.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="303.0" layoutY="374.0" onAction="#browserAction" prefHeight="32.0" prefWidth="114.0" text="Browse Path...." />
-      <Label layoutX="233.0" layoutY="111.0" prefHeight="24.0" prefWidth="232.0" text="This is your Generated Barcode  !" />
+      <JFXButton layoutX="374.0" layoutY="368.0" onAction="#browserAction" prefHeight="32.0" prefWidth="114.0" text="Browse Path...." />
+      <Label layoutX="216.0" layoutY="119.0" prefHeight="24.0" prefWidth="232.0" text="This is your Generated Barcode  !">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
    </children>
 </AnchorPane>

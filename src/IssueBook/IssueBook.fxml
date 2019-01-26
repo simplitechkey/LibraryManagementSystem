@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -47,8 +48,8 @@
             <DropShadow />
          </effect>
       </TableView>
-      <JFXButton fx:id="allrec" layoutX="74.0" layoutY="558.0" onAction="#showallrecs" prefHeight="27.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
-      <JFXTextField fx:id="searchfield" layoutX="50.0" layoutY="128.0" prefHeight="27.0" prefWidth="208.0" promptText="Scan or Enter bookId to Issue Book" />
+      <JFXButton fx:id="allrec" layoutX="74.0" layoutY="548.0" onAction="#showallrecs" prefHeight="37.0" prefWidth="126.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a; -fx-background-color: white;" text="Refresh Table" />
+      <HBox layoutX="33.0" layoutY="136.0" prefHeight="12.0" prefWidth="164.0" />
       <JFXButton layoutX="74.0" layoutY="161.0" onAction="#searchAction" prefHeight="27.0" prefWidth="115.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a#ff996a #ff996a#ff996a;" text="Search" />
       <JFXButton fx:id="issueBtn" layoutX="278.0" layoutY="143.0" onAction="#issueBookAction" prefHeight="37.0" prefWidth="150.0" style="-fx-background-color: #ff996a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ff996a;" text="Issue this book" textFill="WHITE">
          <font>
@@ -62,5 +63,7 @@
             <ContextMenu fx:id="studentIdList" />
          </contextMenu>
       </JFXTextField>
+      <JFXTextField fx:id="searchfield" layoutX="36.0" layoutY="127.0" prefHeight="27.0" prefWidth="208.0" promptText="Scan or Enter bookId to Issue Book" style="-fx-border-radius: 20;" />
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="225.0" layoutY="146.0" />
    </children>
 </AnchorPane>
