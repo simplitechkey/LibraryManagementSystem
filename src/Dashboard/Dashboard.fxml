@@ -213,7 +213,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <ImageView fitHeight="171.0" fitWidth="199.0" layoutX="25.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="171.0" fitWidth="199.0" layoutX="23.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../bvjniot.png" />
                </image>
