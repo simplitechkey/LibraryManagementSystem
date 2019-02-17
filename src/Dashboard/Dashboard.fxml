@@ -14,11 +14,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="651.0" prefWidth="1007.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dashboard.LibraryDashBoardController">
+<AnchorPane id="AnchorPane" prefHeight="664.0" prefWidth="1007.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dashboard.LibraryDashBoardController">
    <children>
       <AnchorPane layoutY="7.0" prefHeight="616.0" prefWidth="237.0" style="-fx-background-color: #393939;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="TOP_CENTER" layoutY="239.0" prefHeight="472.0" prefWidth="237.0" AnchorPane.bottomAnchor="-60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <VBox alignment="TOP_CENTER" layoutY="239.0" prefHeight="454.0" prefWidth="237.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <JFXButton fx:id="bookIssueButton" buttonType="RAISED" graphicTextGap="30.0" onAction="#issueBookAction" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: #ff996a; -fx-background-radius: 10;" text="Issue a Book" textFill="WHITE">
                      <font>
@@ -115,6 +115,24 @@
                            </image>
                         </ImageView>
                      </graphic>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" focusTraversable="false" graphicTextGap="30.0" onAction="#gotoSettings" prefHeight="50.0" prefWidth="220.0" ripplerFill="WHITE" style="-fx-background-color: #ff996a; -fx-background-radius: 10;" text="Settings" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../584bf0c8a62aaa830c43edb4.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="9.0" top="15.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="1.0" right="50.0" />
+                     </padding>
                   </JFXButton>
                </children>
             </VBox>

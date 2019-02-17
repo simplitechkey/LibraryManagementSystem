@@ -61,7 +61,6 @@ import javafx.util.Pair;
  */
 public class ReturnBookController implements Initializable {
 
-    public static final long MAX_DAYS_OF_BOOKS = 3;
     public static long diff;
   
     ObservableList<IssuedBookObject> data = FXCollections.observableArrayList();
@@ -94,7 +93,7 @@ public class ReturnBookController implements Initializable {
 
                     Dialog<Pair<String, String>> dialog = new Dialog<>();
                     dialog.setTitle("OverDue");
-                    dialog.setHeaderText("Book Due Date is Over .Return is " + String.valueOf(diff-MAX_DAYS_OF_BOOKS) + " days late \n Fine to Be Collected = " + String.valueOf((diff-MAX_DAYS_OF_BOOKS) * 2)+"\n If fine is Paid Please enter username and password");
+                    dialog.setHeaderText("Book Due Date is Over .Return is " + String.valueOf(diff-DBLibraryDAO.getMaxDay()) + " days late \n Fine to Be Collected = " + String.valueOf((diff-DBLibraryDAO.getMaxDay()) * DBLibraryDAO.getFineAmount())+"\n If fine is Paid Please enter username and password");
 
                     //dialog.setGraphic(new ImageView(this.getClass().getResource("l1.jpg").toString()));
                     ButtonType loginButtonType = new ButtonType("Login", ButtonBar.ButtonData.OK_DONE);
@@ -280,14 +279,14 @@ public class ReturnBookController implements Initializable {
 
     }
 
-    public boolean isBookPeriodOverLimit(String bookissuedDate) {
+    public boolean isBookPeriodOverLimit(String bookissuedDate) throws Exception {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         LocalDate issuedDate = LocalDate.parse(bookissuedDate, formatter);
         LocalDate today = LocalDate.now();
         diff = DAYS.between(issuedDate, today);
 
-        return diff > MAX_DAYS_OF_BOOKS;
+        return diff > DBLibraryDAO.getMaxDay();
     }
 
 }

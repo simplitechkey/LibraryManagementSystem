@@ -402,9 +402,66 @@ public class DBLibraryDAO {
                 return null;
             }
         } catch (Exception e) {
-
+                e.printStackTrace();
         }
         return rs;
+    }
+    
+     public static int getFineAmount() throws Exception {
+        ResultSet rs = null;
+        String sql = "select fineAmount from tableFine ";
+        try {
+            rs = DBUtil.dbExecute(sql);
+
+            while (rs.next()) {
+                return rs.getInt("fineAmount");
+            } 
+        } catch (Exception e) {
+                 e.printStackTrace();
+        }
+        return rs.getInt("fineAmount");
+    }
+     
+       public static int getMaxDay() throws Exception {
+        ResultSet rs = null;
+        String sql = "select maxDays from tableFine ";
+        try {
+            rs = DBUtil.dbExecute(sql);
+
+            while (rs.next()) {
+                return rs.getInt("maxDays");
+            } 
+        } catch (Exception e) {
+                 e.printStackTrace();
+        }
+        return rs.getInt("maxDays");
+    }
+       
+        public static void insertFineAmount(int Amount) {
+
+            
+        try {
+            String delsql="delete  from tableFine where maxDays = "+DBLibraryDAO.getFineAmount();
+            String sql = "insert into tableFine  (fineAmount) values( " + Amount + ");";
+            DBUtil.dbexcuteQuery(delsql);
+            DBUtil.dbexcuteQuery(sql);
+        } catch (Exception ex) {
+            Logger.getLogger(DBLibraryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+        
+          public static void insertMaxDays(int Days) {
+
+        try {
+            String delsql="delete  from tableFine where maxDays = "+DBLibraryDAO.getFineAmount();
+            String sql = "insert into tableFine  (maxDays) values( " + Days + ");";
+             DBUtil.dbexcuteQuery(delsql);
+            DBUtil.dbexcuteQuery(sql);
+        } catch (Exception ex) {
+            Logger.getLogger(DBLibraryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }

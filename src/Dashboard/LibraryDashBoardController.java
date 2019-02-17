@@ -445,4 +445,24 @@ public class LibraryDashBoardController implements Initializable {
             Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void gotoSettings(ActionEvent event) {
+        try {
+
+            Stage stage;
+            stage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/Settings/Settings.fxml"));
+            Scene scene = new Scene(root, 1200, 600);
+            stage.setResizable(false);
+            stage.setTitle("Settings");
+            stage.setScene(scene);
+            stage.show();
+            new FadeInRightBig(root).play();
+            Stage closestage = (Stage) labelTotalEntries.getScene().getWindow();
+            closestage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(LibraryDashBoardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

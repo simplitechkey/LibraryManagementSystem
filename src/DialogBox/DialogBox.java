@@ -27,6 +27,8 @@ public class DialogBox {
     public static final int pass_not_matched=12;
     public static final int change_pass_success=13;
     public static final int user_pattern_not_matched=14;
+    public static final int amount_saved_successfully=15;
+    public static final int days_saved_successfully=16;
 
     public static void showDialog(int i) {
         switch (i) {
@@ -124,7 +126,19 @@ public class DialogBox {
                 userAl.setContentText("Username must be atleast 5 characters long...!");
                 userAl.showAndWait();
                 break; 
-                
+             case amount_saved_successfully:
+                 Alert amtsavedAlert = new Alert(Alert.AlertType.INFORMATION);
+                amtsavedAlert.setHeaderText("Fine Set Successfully");
+                amtsavedAlert.setContentText("This amount would be used to fine Students per Day");
+                amtsavedAlert.showAndWait();
+                break; 
+             case days_saved_successfully:
+                 Alert daysavedAlert = new Alert(Alert.AlertType.INFORMATION);
+                daysavedAlert.setHeaderText("Days Set Successfully");
+                daysavedAlert.setContentText("This number of Days would be used to fine Students");
+                daysavedAlert.showAndWait();
+                break;   
+                 
                 
 
             default:
