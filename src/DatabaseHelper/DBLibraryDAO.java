@@ -409,40 +409,40 @@ public class DBLibraryDAO {
     
      public static int getFineAmount() throws Exception {
         ResultSet rs = null;
+        int s=0;
         String sql = "select fineAmount from tableFine ";
         try {
             rs = DBUtil.dbExecute(sql);
 
             while (rs.next()) {
-                return rs.getInt("fineAmount");
+               s= rs.getInt("fineAmount");
             } 
         } catch (Exception e) {
                  e.printStackTrace();
         }
-        return rs.getInt("fineAmount");
+        return s;
     }
      
        public static int getMaxDay() throws Exception {
         ResultSet rs = null;
+        int s=0;
         String sql = "select maxDays from tableFine ";
         try {
             rs = DBUtil.dbExecute(sql);
 
             while (rs.next()) {
-                return rs.getInt("maxDays");
+                s= rs.getInt("maxDays");
             } 
         } catch (Exception e) {
                  e.printStackTrace();
         }
-        return rs.getInt("maxDays");
+        return s;
     }
        
-        public static void insertFineAmount(int Amount) {
-
-            
+        public static void insertFineAmount(int Amount,int days) {           
         try {
-            String delsql="delete  from tableFine where maxDays = "+DBLibraryDAO.getFineAmount();
-            String sql = "insert into tableFine  (fineAmount) values( " + Amount + ");";
+            String delsql="delete  from tableFine;";
+            String sql = "insert into tableFine  (fineAmount,maxDays) values( " + Amount + ","+days+");";
             DBUtil.dbexcuteQuery(delsql);
             DBUtil.dbexcuteQuery(sql);
         } catch (Exception ex) {
@@ -451,12 +451,11 @@ public class DBLibraryDAO {
 
     }
         
-          public static void insertMaxDays(int Days) {
-
+          public static void insertMaxDays(int Amount,int days) {
         try {
-            String delsql="delete  from tableFine where maxDays = "+DBLibraryDAO.getFineAmount();
-            String sql = "insert into tableFine  (maxDays) values( " + Days + ");";
-             DBUtil.dbexcuteQuery(delsql);
+            String delsql="delete  from tableFine ;";
+            String sql = "insert into tableFine  (fineAmount,maxDays) values( " + Amount + ","+days+");";
+            DBUtil.dbexcuteQuery(delsql);
             DBUtil.dbexcuteQuery(sql);
         } catch (Exception ex) {
             Logger.getLogger(DBLibraryDAO.class.getName()).log(Level.SEVERE, null, ex);

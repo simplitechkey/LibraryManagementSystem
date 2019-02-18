@@ -87,15 +87,24 @@ public class SettingsController implements Initializable {
 
     @FXML
     private void saveFine(ActionEvent event) {
-        DBLibraryDAO.insertFineAmount(Integer.parseInt(fineAmount.getText().trim()));
+        if(fineAmount.getText().trim().isEmpty() || maxDaysField.getText().trim().isEmpty()){
+            DialogBox.DialogBox.showDialog(DialogBox.DialogBox.field_empty);
+        }
+        else{
+        DBLibraryDAO.insertFineAmount(Integer.parseInt(fineAmount.getText().trim()),Integer.parseInt(maxDaysField.getText().trim()));
         DialogBox.DialogBox.showDialog(DialogBox.DialogBox.amount_saved_successfully);
         
+    }
     }
 
     @FXML
     private void saveDays(ActionEvent event) {
-        DBLibraryDAO.insertMaxDays(Integer.parseInt(maxDaysField.getText().trim()));
+         if(fineAmount.getText().trim().isEmpty() || maxDaysField.getText().trim().isEmpty()){
+            DialogBox.DialogBox.showDialog(DialogBox.DialogBox.field_empty);
+        }
+        else{
+        DBLibraryDAO.insertMaxDays(Integer.parseInt(fineAmount.getText().trim()),Integer.parseInt(maxDaysField.getText().trim()));
           DialogBox.DialogBox.showDialog(DialogBox.DialogBox.days_saved_successfully);
     }
-    
+    }
 }
