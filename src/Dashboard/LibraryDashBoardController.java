@@ -264,7 +264,7 @@ public class LibraryDashBoardController implements Initializable {
             AnchorPane root = FXMLLoader.load(getClass().getResource("/ChangePassword/ChangePassword.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1200, 600);
-            stage.setTitle("Total Issued Books");
+            stage.setTitle("Chnage Password");
             //stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
@@ -283,7 +283,7 @@ public class LibraryDashBoardController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/ReturnBook/ReturnBook.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1200, 600);
-            stage.setTitle("Total Issued Books");
+            stage.setTitle("Return a Book");
             //stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
@@ -346,7 +346,7 @@ public class LibraryDashBoardController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/fromDashboard/ReturnedBooksTable.fxml"));
             Scene scene = new Scene(root, 1200, 600);
             stage.setResizable(false);
-            stage.setTitle("Return Book");
+            stage.setTitle("Returned  Books");
             stage.setScene(scene);
             stage.show();
             new FadeInRightBig(root).play();
@@ -414,7 +414,7 @@ public class LibraryDashBoardController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/AddStudent/AddStudent.fxml"));
             Scene scene = new Scene(root, 1200, 600);
             stage.setResizable(false);
-            stage.setTitle("Return Book");
+            stage.setTitle("Add or Delete Book");
             stage.setScene(scene);
             stage.show();
             new FadeInRightBig(root).play();
@@ -435,7 +435,7 @@ public class LibraryDashBoardController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/fromDashboard/StudentsTable.fxml"));
             Scene scene = new Scene(root, 1200, 600);
             stage.setResizable(false);
-            stage.setTitle("Return Book");
+            stage.setTitle("Students Table");
             stage.setScene(scene);
             stage.show();
             new FadeInRightBig(root).play();

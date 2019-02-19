@@ -123,7 +123,7 @@
                      <graphic>
                         <ImageView fitHeight="39.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../584bf0c8a62aaa830c43edb4.png" />
+                              <Image url="@../settingslogo.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -231,7 +231,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <ImageView fitHeight="171.0" fitWidth="199.0" layoutX="23.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fitHeight="171.0" fitWidth="199.0" layoutX="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../bvjniot.png" />
                </image>

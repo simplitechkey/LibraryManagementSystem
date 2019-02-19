@@ -35,7 +35,7 @@
             <DropShadow />
          </effect>
       </JFXButton>
-      <JFXTextField fx:id="maxDaysField" layoutX="39.0" layoutY="313.0" prefHeight="40.0" prefWidth="156.0" promptText="Enter Amount of Fine to be Charged Per DayEnter Amount of Fine to be Charged Per Day" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" text="Enter Days" unFocusColor="#4d4d4d00">
+      <JFXTextField fx:id="maxDaysField" layoutX="39.0" layoutY="313.0" prefHeight="40.0" prefWidth="156.0" promptText="Enter Amount of Fine to be Charged Per Day" style="-fx-border-color: #ff996a; -fx-border-radius: 40; -fx-background-color: white; -fx-background-radius: 40;" text="Enter Days" unFocusColor="#4d4d4d00">
          <padding>
             <Insets left="20.0" right="20.0" />
          </padding>
